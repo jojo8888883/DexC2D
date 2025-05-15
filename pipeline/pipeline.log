@@ -1,0 +1,334 @@
+2025-05-15 15:46:14,562 - pipeline - INFO - 已加载配置: pipeline/config.yaml
+2025-05-15 15:46:14,564 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04
+2025-05-15 15:46:14,564 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 15:46:14,565 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 15:46:14,568 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04\rgb_init.png
+2025-05-15 15:46:14,569 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04\cam_K.txt
+2025-05-15 15:46:14,569 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04\rgb_init.png
+2025-05-15 15:46:14,571 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 15:46:14,589 - pipeline - INFO - 使用设备: cuda
+2025-05-15 15:46:16,777 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 15:46:19,210 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 15:46:21,309 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 15:46:21,309 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 15:46:21,310 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04\prompt.info
+2025-05-15 15:46:21,310 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 15:46:21,310 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 15:46:21,311 - pipeline - WARNING - 未设置API密钥，请设置OPENAI_API_KEY环境变量或在初始化时提供
+2025-05-15 15:46:21,311 - pipeline - ERROR - Sora阶段出错: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-05-15 15:46:21,311 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\003_cracker_box_04
+2025-05-15 16:04:02,477 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05
+2025-05-15 16:04:02,478 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:04:02,478 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:04:02,481 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05\rgb_init.png
+2025-05-15 16:04:02,482 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05\cam_K.txt
+2025-05-15 16:04:02,482 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05\rgb_init.png
+2025-05-15 16:04:02,483 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:04:02,503 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:04:04,636 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:04:06,954 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:04:09,337 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:04:09,337 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:04:09,338 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05\prompt.info
+2025-05-15 16:04:09,339 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:04:09,339 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:04:10,069 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:04:10,070 - pipeline - ERROR - 生成视频时出错: 'AsyncOpenAI' object has no attribute 'videos'
+2025-05-15 16:04:10,070 - pipeline - ERROR - 视频生成失败
+2025-05-15 16:04:10,071 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\004_cracker_box_05
+2025-05-15 16:09:00,140 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06
+2025-05-15 16:09:00,140 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:09:00,142 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:09:00,145 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06\rgb_init.png
+2025-05-15 16:09:00,146 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06\cam_K.txt
+2025-05-15 16:09:00,146 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06\rgb_init.png
+2025-05-15 16:09:00,146 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:09:00,167 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:09:02,190 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:09:04,511 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:09:06,945 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:09:06,946 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:09:06,946 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06\prompt.info
+2025-05-15 16:09:06,947 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:09:06,947 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:09:07,660 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:09:23,974 - pipeline - ERROR - 生成视频时出错: Request timed out.
+2025-05-15 16:09:23,975 - pipeline - ERROR - 视频生成失败
+2025-05-15 16:09:23,976 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\005_cracker_box_06
+2025-05-15 16:13:48,119 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07
+2025-05-15 16:13:48,120 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:13:48,120 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:13:48,124 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07\rgb_init.png
+2025-05-15 16:13:48,125 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07\cam_K.txt
+2025-05-15 16:13:48,125 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07\rgb_init.png
+2025-05-15 16:13:48,125 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:13:48,157 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:13:50,241 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:13:52,582 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:13:55,051 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:13:55,051 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:13:55,052 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07\prompt.info
+2025-05-15 16:13:55,052 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:13:55,052 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:13:55,789 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:14:01,359 - pipeline - ERROR - 生成视频时出错: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-api-key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-15 16:14:01,360 - pipeline - ERROR - 视频生成失败
+2025-05-15 16:14:01,361 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\006_cracker_box_07
+2025-05-15 16:15:03,286 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08
+2025-05-15 16:15:03,286 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:15:03,287 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:15:03,290 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08\rgb_init.png
+2025-05-15 16:15:03,290 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08\cam_K.txt
+2025-05-15 16:15:03,290 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08\rgb_init.png
+2025-05-15 16:15:03,290 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:15:03,314 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:15:05,381 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:15:07,670 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:15:10,174 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:15:10,174 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:15:10,176 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08\prompt.info
+2025-05-15 16:15:10,176 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:15:10,176 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:15:10,854 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:15:17,106 - pipeline - ERROR - 生成视频时出错: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-api-key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-15 16:15:17,108 - pipeline - ERROR - 视频生成失败
+2025-05-15 16:15:17,108 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\007_cracker_box_08
+2025-05-15 16:28:07,838 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09
+2025-05-15 16:28:07,838 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:28:07,839 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:28:07,842 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09\rgb_init.png
+2025-05-15 16:28:07,842 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09\cam_K.txt
+2025-05-15 16:28:07,843 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09\rgb_init.png
+2025-05-15 16:28:07,843 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:28:07,863 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:28:09,918 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:28:12,239 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:28:14,817 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:28:14,818 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:28:14,818 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09\prompt.info
+2025-05-15 16:28:14,819 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:28:14,819 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:28:14,819 - pipeline - WARNING - 未设置API密钥，请设置OPENAI_API_KEY环境变量或在初始化时提供
+2025-05-15 16:28:14,819 - pipeline - ERROR - Sora阶段出错: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-05-15 16:28:14,820 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\008_cracker_box_09
+2025-05-15 16:28:58,458 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10
+2025-05-15 16:28:58,459 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:28:58,459 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:28:58,463 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\rgb_init.png
+2025-05-15 16:28:58,463 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\cam_K.txt
+2025-05-15 16:28:58,464 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\rgb_init.png
+2025-05-15 16:28:58,464 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:28:58,487 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:29:00,611 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:29:02,904 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:29:05,529 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:29:05,529 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:29:05,530 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\prompt.info
+2025-05-15 16:29:05,530 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:29:05,530 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:29:05,531 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:29:05,532 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:29:05,532 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4
+2025-05-15 16:29:05,831 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4
+2025-05-15 16:29:05,831 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4
+2025-05-15 16:29:05,832 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4
+2025-05-15 16:29:05,832 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:29:13,992 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:29:13,996 - pipeline - INFO - 开始过滤视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 16:29:18,604 - pipeline - INFO - 过滤结果: 手部比例=0.00, 物体比例=0.00, 静止相机比例=0.71, 平均光流=1.87
+2025-05-15 16:29:18,607 - pipeline - INFO - 过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\rule_filter.json
+2025-05-15 16:29:18,607 - pipeline - INFO - 视频未通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10\video\video.mp4
+2025-05-15 16:29:18,607 - pipeline - INFO - 失败原因: 手部检测率过低: 0.00 < 0.8, 物体检测率过低: 0.00 < 0.8, 静止相机比例过低: 0.71 < 0.8
+2025-05-15 16:29:18,608 - pipeline - INFO - 视频未通过规则过滤
+2025-05-15 16:29:18,608 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\009_cracker_box_10
+2025-05-15 16:37:31,409 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11
+2025-05-15 16:37:31,409 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:37:31,410 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:37:31,413 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\rgb_init.png
+2025-05-15 16:37:31,414 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\cam_K.txt
+2025-05-15 16:37:31,414 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\rgb_init.png
+2025-05-15 16:37:31,414 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:37:31,444 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:37:33,529 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:37:35,853 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:37:37,909 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:37:37,910 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:37:37,910 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\prompt.info
+2025-05-15 16:37:37,911 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:37:37,911 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:37:37,911 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:37:37,913 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:37:37,913 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4
+2025-05-15 16:37:38,177 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4
+2025-05-15 16:37:38,177 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4
+2025-05-15 16:37:38,178 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4
+2025-05-15 16:37:38,178 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:37:38,496 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:37:38,499 - pipeline - INFO - 开始过滤视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 16:37:42,338 - pipeline - INFO - 过滤结果: 手部比例=0.00, 物体比例=0.00, 静止相机比例=0.71, 平均光流=1.87
+2025-05-15 16:37:42,340 - pipeline - INFO - 过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\rule_filter.json
+2025-05-15 16:37:42,341 - pipeline - INFO - 视频未通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11\video\video.mp4
+2025-05-15 16:37:42,341 - pipeline - INFO - 失败原因: 手部检测率过低: 0.00 < 0.8, 物体检测率过低: 0.00 < 0.8, 静止相机比例过低: 0.71 < 0.8
+2025-05-15 16:37:42,342 - pipeline - INFO - 视频未通过规则过滤
+2025-05-15 16:37:42,342 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\010_cracker_box_11
+2025-05-15 16:40:32,681 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12
+2025-05-15 16:40:32,681 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:40:32,681 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:40:32,685 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12\rgb_init.png
+2025-05-15 16:40:32,685 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12\cam_K.txt
+2025-05-15 16:40:32,686 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12\rgb_init.png
+2025-05-15 16:40:32,686 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:40:32,703 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:40:34,767 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:40:37,126 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:40:39,182 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:40:39,182 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:40:39,183 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12\prompt.info
+2025-05-15 16:40:39,184 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:40:39,184 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:40:39,184 - pipeline - WARNING - 未设置API密钥，请设置OPENAI_API_KEY环境变量或在初始化时提供
+2025-05-15 16:40:39,185 - pipeline - ERROR - Sora阶段出错: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-05-15 16:40:39,185 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\011_cracker_box_12
+2025-05-15 16:42:50,944 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13
+2025-05-15 16:42:50,944 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:42:50,945 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:42:50,948 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\rgb_init.png
+2025-05-15 16:42:50,949 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\cam_K.txt
+2025-05-15 16:42:50,949 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\rgb_init.png
+2025-05-15 16:42:50,949 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:42:50,969 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:42:52,997 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:42:55,316 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:42:57,390 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:42:57,390 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:42:57,391 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\prompt.info
+2025-05-15 16:42:57,392 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:42:57,392 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:42:57,392 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:42:57,392 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:42:57,393 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4
+2025-05-15 16:42:57,635 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4
+2025-05-15 16:42:57,636 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4
+2025-05-15 16:42:57,636 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4
+2025-05-15 16:42:57,636 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:42:57,959 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:42:57,961 - pipeline - INFO - 开始过滤视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 16:43:01,841 - pipeline - INFO - 过滤结果: 手部比例=0.00, 物体比例=0.00, 静止相机比例=0.71, 平均光流=1.87
+2025-05-15 16:43:01,843 - pipeline - INFO - 过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\rule_filter.json
+2025-05-15 16:43:01,843 - pipeline - INFO - 视频未通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13\video\video.mp4
+2025-05-15 16:43:01,843 - pipeline - INFO - 失败原因: 手部检测率过低: 0.00 < 0.8, 物体检测率过低: 0.00 < 0.8, 静止相机比例过低: 0.71 < 0.8
+2025-05-15 16:43:01,844 - pipeline - INFO - 视频未通过规则过滤
+2025-05-15 16:43:01,845 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\012_cracker_box_13
+2025-05-15 16:44:50,512 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14
+2025-05-15 16:44:50,513 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:44:50,514 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:44:50,517 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\rgb_init.png
+2025-05-15 16:44:50,518 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\cam_K.txt
+2025-05-15 16:44:50,518 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\rgb_init.png
+2025-05-15 16:44:50,518 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:44:50,536 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:44:52,669 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:44:54,969 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:44:57,008 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:44:57,009 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:44:57,009 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\prompt.info
+2025-05-15 16:44:57,010 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:44:57,010 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:44:57,011 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:44:57,011 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:44:57,012 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,262 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,263 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,263 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,264 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:44:57,574 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:44:57,611 - pipeline - INFO - 检测到模拟视频，自动通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,612 - pipeline - INFO - 模拟视频过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\rule_filter.json
+2025-05-15 16:44:57,613 - pipeline - INFO - 视频通过规则过滤
+2025-05-15 16:44:57,613 - pipeline - INFO - 开始阶段5: 模型过滤
+2025-05-15 16:44:57,613 - pipeline - INFO - 模型过滤已禁用，自动通过
+2025-05-15 16:44:57,614 - pipeline - INFO - 开始阶段6: 视频转PNG
+2025-05-15 16:44:57,614 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4
+2025-05-15 16:44:57,614 - pipeline - INFO - FFmpeg命令: ffmpeg -i "F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\video\video.mp4" -qscale:v 2 "F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14\rgb/%05d.png" -y
+2025-05-15 16:44:57,638 - pipeline - ERROR - 提取帧时出错: [WinError 2] 系统找不到指定的文件。
+2025-05-15 16:44:57,638 - pipeline - INFO - 帧提取完成，耗时: 0.02秒, 使用: FFmpeg
+2025-05-15 16:44:57,638 - pipeline - ERROR - 视频转PNG失败
+2025-05-15 16:44:57,638 - pipeline - ERROR - 流水线运行失败: F:\24-25spring\DexC2D\gen_dataset\gen_datas\013_cracker_box_14
+2025-05-15 16:45:42,819 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15
+2025-05-15 16:45:42,819 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:45:42,819 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:45:42,824 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rgb_init.png
+2025-05-15 16:45:42,824 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\cam_K.txt
+2025-05-15 16:45:42,824 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rgb_init.png
+2025-05-15 16:45:42,824 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:45:42,844 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:45:44,875 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:45:47,203 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:45:49,295 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:45:49,295 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:45:49,296 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\prompt.info
+2025-05-15 16:45:49,296 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:45:49,296 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:45:49,297 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:45:49,297 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:45:49,298 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,556 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,556 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,557 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,557 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:45:49,875 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:45:49,910 - pipeline - INFO - 检测到模拟视频，自动通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,912 - pipeline - INFO - 模拟视频过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rule_filter.json
+2025-05-15 16:45:49,913 - pipeline - INFO - 视频通过规则过滤
+2025-05-15 16:45:49,913 - pipeline - INFO - 开始阶段5: 模型过滤
+2025-05-15 16:45:49,913 - pipeline - INFO - 模型过滤已禁用，自动通过
+2025-05-15 16:45:49,913 - pipeline - INFO - 开始阶段6: 视频转PNG
+2025-05-15 16:45:49,914 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4
+2025-05-15 16:45:49,914 - pipeline - INFO - FFmpeg命令: ffmpeg -i "F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4" -qscale:v 2 "F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rgb/%05d.png" -y
+2025-05-15 16:45:49,938 - pipeline - ERROR - 提取帧时出错: [WinError 2] 系统找不到指定的文件。
+2025-05-15 16:45:49,938 - pipeline - WARNING - 使用FFmpeg提取帧失败，将尝试使用OpenCV
+2025-05-15 16:45:49,940 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 16:45:49,941 - pipeline - INFO - 提取范围: 0 到 90, 步长: 1
+2025-05-15 16:45:53,793 - pipeline - INFO - 已提取 90 帧到 F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rgb
+2025-05-15 16:45:53,794 - pipeline - INFO - 帧提取成功，耗时: 3.88秒
+2025-05-15 16:45:53,794 - pipeline - INFO - 视频已转换为PNG: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15\rgb
+2025-05-15 16:45:53,795 - pipeline - INFO - 流水线运行成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\014_cracker_box_15
+2025-05-15 16:46:38,472 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16
+2025-05-15 16:46:38,473 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 16:46:38,473 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 16:46:38,476 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb_init.png
+2025-05-15 16:46:38,477 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\cam_K.txt
+2025-05-15 16:46:38,478 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb_init.png
+2025-05-15 16:46:38,478 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 16:46:38,498 - pipeline - INFO - 使用设备: cuda
+2025-05-15 16:46:40,571 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 16:46:42,903 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 16:46:44,980 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 16:46:44,980 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:46:44,981 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\prompt.info
+2025-05-15 16:46:44,981 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 16:46:44,981 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 16:46:44,982 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 16:46:44,982 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 16:46:44,982 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,227 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,228 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,228 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,228 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 16:46:45,530 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 16:46:45,566 - pipeline - INFO - 检测到模拟视频，自动通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,568 - pipeline - INFO - 模拟视频过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rule_filter.json
+2025-05-15 16:46:45,569 - pipeline - INFO - 视频通过规则过滤
+2025-05-15 16:46:45,569 - pipeline - INFO - 开始阶段5: 模型过滤
+2025-05-15 16:46:45,569 - pipeline - INFO - 模型过滤已禁用，自动通过
+2025-05-15 16:46:45,570 - pipeline - INFO - 开始阶段6: 视频转PNG
+2025-05-15 16:46:45,570 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4
+2025-05-15 16:46:45,570 - pipeline - INFO - FFmpeg命令: ffmpeg -i "F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4" -qscale:v 2 "F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb/%05d.png" -y
+2025-05-15 16:46:45,589 - pipeline - ERROR - 提取帧时出错: [WinError 2] 系统找不到指定的文件。
+2025-05-15 16:46:45,589 - pipeline - WARNING - 使用FFmpeg提取帧失败，将尝试使用OpenCV
+2025-05-15 16:46:45,592 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 16:46:45,592 - pipeline - INFO - 提取范围: 0 到 90, 步长: 1
+2025-05-15 16:46:49,444 - pipeline - INFO - 已提取 90 帧到 F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb
+2025-05-15 16:46:49,445 - pipeline - INFO - 帧提取成功，耗时: 3.87秒
+2025-05-15 16:46:49,445 - pipeline - INFO - 视频已转换为PNG: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb
+2025-05-15 16:46:49,446 - pipeline - INFO - 流水线运行成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16

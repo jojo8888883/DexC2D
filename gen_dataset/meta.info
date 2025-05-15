@@ -1,0 +1,8 @@
+# 对象到CAD模型的映射
+# 格式: 对象名称=模型文件名
+cracker_box=cracker_box.obj
+sugar_box=sugar_box.obj
+tomato_soup_can=tomato_soup_can.obj
+mustard_bottle=mustard_bottle.obj
+gelatin_box=gelatin_box.obj
+custom_box=custom_box.obj 

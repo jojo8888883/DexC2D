@@ -1,0 +1,7 @@
+object=cracker_box
+version=02
+sequence=001
+timestamp=2025-05-15 15:42:14
+status=failed
+retry_count=0
+stages={'capture': {'status': 'failed', 'error': '拍照失败'}, 'prompt': {'status': 'pending'}, 'sora': {'status': 'pending'}, 'rule_filter': {'status': 'pending'}, 'model_filter': {'status': 'pending'}, 'video2png': {'status': 'pending'}}

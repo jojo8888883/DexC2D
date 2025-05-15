@@ -1,0 +1,9 @@
+{
+  "video_path": "F:\\24-25spring\\DexC2D\\gen_dataset\\gen_datas\\013_cracker_box_14\\video\\video.mp4",
+  "is_mock_video": true,
+  "hand_ratio": 1.0,
+  "object_ratio": 1.0,
+  "static_ratio": 1.0,
+  "average_flow": 0.0,
+  "auto_passed": true
+}

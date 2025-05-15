@@ -1,0 +1,13 @@
+{
+  "video_path": "F:\\24-25spring\\DexC2D\\gen_dataset\\gen_datas\\009_cracker_box_10\\video\\video.mp4",
+  "total_frames": 90,
+  "checked_frames": 17,
+  "hand_detected_frames": 0,
+  "hand_ratio": 0.0,
+  "object_detected_frames": 0,
+  "object_ratio": 0.0,
+  "static_camera_frames": 12,
+  "static_ratio": 0.7058823529411765,
+  "average_flow": 1.866377353668213,
+  "early_stopped": false
+}

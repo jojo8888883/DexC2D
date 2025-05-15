@@ -1,0 +1,12 @@
+{
+  "background_color": "\u767d\u8272",
+  "object_bbox": [
+    160,
+    80,
+    480,
+    400
+  ],
+  "object_name": "cracker_box",
+  "hand_gesture": "\u63e1\u4f4f",
+  "prompt": "\u9759\u6b62\u955c\u5934\u3002\u4e00\u53ea\u624b\u63e1\u4f4f\u997c\u5e72\u76d2\uff0c\u5728\u767d\u8272\u80cc\u666f\u524d\u5c55\u793a\u3002"
+}
