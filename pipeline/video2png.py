@@ -5,10 +5,11 @@ import logging
 import os
 from pathlib import Path
 import time
+import shutil
 
 logger = logging.getLogger('pipeline')
 
-def extract_frames_opencv(video_path, output_dir, start_frame=0, end_frame=None, step=1, quality=95):
+def extract_frames_opencv(video_path, output_dir, start_frame=0, end_frame=None, step=1, quality=95, target_fps=30):
     """
     使用OpenCV从视频中提取帧
     
@@ -19,6 +20,7 @@ def extract_frames_opencv(video_path, output_dir, start_frame=0, end_frame=None,
         end_frame: 结束帧索引，如果为None则提取到最后
         step: 帧采样步长
         quality: 输出图像质量（1-100）
+        target_fps: 目标帧率，如果视频帧率不同，会进行调整
         
     Returns:
         提取的帧数
@@ -36,6 +38,17 @@ def extract_frames_opencv(video_path, output_dir, start_frame=0, end_frame=None,
     # 获取视频信息
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = cap.get(cv2.CAP_PROP_FPS)
+    duration = total_frames / fps if fps > 0 else 0
+    
+    logger.info(f"视频信息 - 帧数: {total_frames}, 帧率: {fps}, 时长: {duration:.2f}秒")
+    
+    # 确保视频有5秒长（30fps x 5秒 = 150帧）
+    target_frames = int(target_fps * 5)
+    
+    # 如果视频帧率不是30fps，需要调整采样步长
+    if abs(fps - target_fps) > 1.0 and fps > 0:
+        step = fps / target_fps
+        logger.info(f"视频帧率不是{target_fps}fps，调整采样步长为: {step:.2f}")
     
     # 确定结束帧
     if end_frame is None or end_frame > total_frames:
@@ -49,24 +62,59 @@ def extract_frames_opencv(video_path, output_dir, start_frame=0, end_frame=None,
     
     count = 0
     frame_idx = start_frame
+    extracted_frames = []
     
-    while frame_idx < end_frame:
+    # 估计需要提取的帧数
+    expected_frames = min(int((end_frame - start_frame) / step) + 1, target_frames)
+    logger.info(f"预计提取 {expected_frames} 帧")
+    
+    while frame_idx < end_frame and count < target_frames:
         ret, frame = cap.read()
         if not ret:
             break
         
-        if frame_idx % step == 0:
+        if step > 1:
+            # 如果步长大于1，需要跳过一些帧
+            if frame_idx % step < 1.0:
             # 保存帧
-            output_path = output_dir / f"{count+1:05d}.png"
+                output_path = output_dir / f"{count:05d}.png"
+                cv2.imwrite(str(output_path), frame, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+                extracted_frames.append(output_path)
+                count += 1
+        else:
+            # 正常提取每一帧
+            output_path = output_dir / f"{count:05d}.png"
             cv2.imwrite(str(output_path), frame, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+            extracted_frames.append(output_path)
             count += 1
         
-        frame_idx += 1
+        # 更新帧索引
+        if step > 1:
+            # 如果步长大于1，直接跳过一些帧
+            next_frame = frame_idx + 1
+            if next_frame < end_frame:
+                cap.set(cv2.CAP_PROP_POS_FRAMES, next_frame)
+            frame_idx = next_frame
+        else:
+            frame_idx += 1
     
     # 释放视频
     cap.release()
     
     logger.info(f"已提取 {count} 帧到 {output_dir}")
+    
+    # 如果提取的帧数不足150帧（5秒×30fps），使用最后一帧补足
+    if count < target_frames and extracted_frames:
+        last_frame_path = extracted_frames[-1]
+        last_frame = cv2.imread(str(last_frame_path))
+        
+        for i in range(count, target_frames):
+            output_path = output_dir / f"{i:05d}.png"
+            cv2.imwrite(str(output_path), last_frame, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+            count += 1
+        
+        logger.info(f"用最后一帧补充到总计 {count} 帧")
+    
     return count
 
 def extract_frames_ffmpeg(video_path, output_dir, quality=2):
@@ -119,7 +167,7 @@ def extract_frames_ffmpeg(video_path, output_dir, quality=2):
         logger.error(f"提取帧时出错: {str(e)}")
         return False
 
-def video_to_frames(video_path, output_dir, use_ffmpeg=True, quality=2):
+def video_to_frames(video_path, output_dir, use_ffmpeg=True, quality=2, target_fps=30):
     """
     将视频转换为帧序列
     
@@ -128,6 +176,7 @@ def video_to_frames(video_path, output_dir, use_ffmpeg=True, quality=2):
         output_dir: 输出目录
         use_ffmpeg: 是否使用FFmpeg（否则使用OpenCV）
         quality: 输出质量
+        target_fps: 目标帧率，确保输出是30Hz
         
     Returns:
         是否成功转换
@@ -135,35 +184,131 @@ def video_to_frames(video_path, output_dir, use_ffmpeg=True, quality=2):
     start_time = time.time()
     success = False
     
+    # 创建输出目录
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 清理输出目录中的现有文件
+    for f in output_dir.glob("frame_*.png"):
+        f.unlink()
+    
+    # 目标帧数：5秒 × 30fps = 150帧
+    target_frames = 150
+    
     # 先尝试使用指定的方法
     if use_ffmpeg:
         try:
-            success = extract_frames_ffmpeg(video_path, output_dir, quality)
-            if success:
-                logger.info(f"使用FFmpeg成功提取帧")
-            else:
-                logger.warning(f"使用FFmpeg提取帧失败，将尝试使用OpenCV")
-                # 使用OpenCV作为备选方案
-                success = extract_frames_opencv(video_path, output_dir, quality=quality) > 0
+            # 使用FFmpeg提取帧
+            cmd = f'ffmpeg -i "{video_path}" -vf "fps={target_fps}" -qscale:v {quality} "{output_dir}/temp_%06d.png" -y'
+            
+            logger.info(f"使用FFmpeg提取帧，命令: {cmd}")
+            
+            process = subprocess.run(
+                shlex.split(cmd),
+                stderr=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                check=True,
+                text=True
+            )
+            
+            if process.returncode == 0:
+                # 重命名帧为正确的格式
+                temp_frames = sorted(output_dir.glob("temp_*.png"))
+                frame_count = len(temp_frames)
+                
+                if frame_count > 0:
+                    # 如果帧数不足150，复制最后一帧
+                    if frame_count < target_frames:
+                        last_frame = temp_frames[-1]
+                        for i in range(frame_count, target_frames):
+                            new_frame = output_dir / f"temp_{i+1:06d}.png"
+                            shutil.copy2(last_frame, new_frame)
+                            temp_frames.append(new_frame)
+                    
+                    # 重命名前150帧
+                    for i, frame in enumerate(temp_frames[:target_frames]):
+                        new_name = output_dir / f"frame_{i:06d}.png"
+                        frame.rename(new_name)
+                    
+                    # 删除多余的帧
+                    for frame in temp_frames[target_frames:]:
+                        if frame.exists():
+                            frame.unlink()
+                    
+                    success = True
+                    logger.info(f"FFmpeg成功提取并重命名了 {target_frames} 帧")
+            
         except Exception as e:
             logger.error(f"使用FFmpeg提取帧时出错: {str(e)}，将尝试使用OpenCV")
-            # 使用OpenCV作为备选方案
-            success = extract_frames_opencv(video_path, output_dir, quality=quality) > 0
-    else:
-        # 直接使用OpenCV
-        success = extract_frames_opencv(video_path, output_dir, quality=quality) > 0
+            # 清理可能存在的临时文件
+            for f in output_dir.glob("temp_*.png"):
+                f.unlink()
+    
+    # 如果FFmpeg失败或未使用FFmpeg，使用OpenCV
+    if not success:
+        try:
+            cap = cv2.VideoCapture(str(video_path))
+            if not cap.isOpened():
+                logger.error(f"无法打开视频: {video_path}")
+                return False
+            
+            # 获取视频信息
+            fps = cap.get(cv2.CAP_PROP_FPS)
+            total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            
+            # 计算采样步长
+            if abs(fps - target_fps) > 1.0 and fps > 0:
+                step = fps / target_fps
+                logger.info(f"调整采样步长: {step:.2f} (原始fps: {fps}, 目标fps: {target_fps})")
+            else:
+                step = 1.0
+            
+            frame_idx = 0.0
+            count = 0
+            last_frame = None
+            
+            while count < target_frames:
+                # 设置帧位置
+                cap.set(cv2.CAP_PROP_POS_FRAMES, int(frame_idx))
+                ret, frame = cap.read()
+                
+                if ret:
+                    last_frame = frame.copy()
+                    output_path = output_dir / f"frame_{count:06d}.png"
+                    cv2.imwrite(str(output_path), frame, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+                    count += 1
+                elif last_frame is not None:
+                    # 使用最后一帧填充
+                    output_path = output_dir / f"frame_{count:06d}.png"
+                    cv2.imwrite(str(output_path), last_frame, [cv2.IMWRITE_PNG_COMPRESSION, 9])
+                    count += 1
+                else:
+                    break
+                
+                frame_idx += step
+            
+            cap.release()
+            success = count == target_frames
+            
+            if success:
+                logger.info(f"OpenCV成功提取了 {count} 帧")
+            else:
+                logger.error(f"OpenCV只提取到 {count} 帧，期望 {target_frames} 帧")
+        
+        except Exception as e:
+            logger.error(f"使用OpenCV提取帧时出错: {str(e)}")
+            return False
+    
+    # 最终检查
+    frames = list(output_dir.glob("frame_*.png"))
+    frame_count = len(frames)
+    
+    if frame_count != target_frames:
+        logger.error(f"最终帧数 ({frame_count}) 不等于目标帧数 ({target_frames})")
+        return False
     
     elapsed = time.time() - start_time
-    
-    if success:
-        # 再次检查输出目录中是否有文件
-        output_path = Path(output_dir)
-        frames = list(output_path.glob("*.png"))
-        if len(frames) == 0:
-            logger.error(f"提取帧失败：没有生成任何PNG文件")
-            success = False
-    
-    logger.info(f"帧提取{'成功' if success else '失败'}，耗时: {elapsed:.2f}秒")
+    logger.info(f"帧提取完成，耗时: {elapsed:.2f}秒")
     
     return success
 

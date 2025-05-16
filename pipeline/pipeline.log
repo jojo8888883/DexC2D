@@ -332,3 +332,695 @@
 2025-05-15 16:46:49,445 - pipeline - INFO - 帧提取成功，耗时: 3.87秒
 2025-05-15 16:46:49,445 - pipeline - INFO - 视频已转换为PNG: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16\rgb
 2025-05-15 16:46:49,446 - pipeline - INFO - 流水线运行成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\015_cracker_box_16
+2025-05-15 20:06:52,595 - pipeline - ERROR - 请指定对象名称或使用监听模式
+2025-05-15 20:07:20,245 - pipeline - INFO - 创建运行目录: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17
+2025-05-15 20:07:20,245 - pipeline - INFO - 开始阶段1: 拍照
+2025-05-15 20:07:20,246 - pipeline - INFO - 使用模拟图像替代真实相机捕获
+2025-05-15 20:07:20,256 - pipeline - INFO - 已保存模拟图像到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rgb_init.png
+2025-05-15 20:07:20,257 - pipeline - INFO - 相机内参已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\cam_K.txt
+2025-05-15 20:07:20,257 - pipeline - INFO - 拍照成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rgb_init.png
+2025-05-15 20:07:20,257 - pipeline - INFO - 开始阶段2: 提示生成
+2025-05-15 20:07:20,300 - pipeline - INFO - 使用设备: cuda
+2025-05-15 20:07:24,334 - pipeline - INFO - 目标检测模型已加载
+2025-05-15 20:07:26,731 - pipeline - INFO - 检测到背景颜色: 白色
+2025-05-15 20:07:31,372 - pipeline - WARNING - 未检测到物体，使用默认中心区域
+2025-05-15 20:07:31,372 - pipeline - INFO - 生成提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 20:07:31,373 - pipeline - INFO - 提示信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\prompt.info
+2025-05-15 20:07:31,374 - pipeline - INFO - 提示生成成功: 静止镜头。一只手握住饼干盒，在白色背景前展示。
+2025-05-15 20:07:31,374 - pipeline - INFO - 开始阶段3: Sora视频生成
+2025-05-15 20:07:31,375 - pipeline - INFO - 开始生成视频，提示: '静止镜头。一只手握住饼干盒，在白色背景前展示。'
+2025-05-15 20:07:31,375 - pipeline - INFO - 使用模拟模式创建视频
+2025-05-15 20:07:31,375 - pipeline - INFO - 创建模拟视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:31,698 - pipeline - INFO - 模拟视频创建成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:31,700 - pipeline - INFO - 模拟视频已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:31,700 - pipeline - INFO - 视频生成成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:31,701 - pipeline - INFO - 开始阶段4: 规则过滤
+2025-05-15 20:07:32,091 - pipeline - INFO - YOLOv8模型已加载
+2025-05-15 20:07:32,140 - pipeline - INFO - 检测到模拟视频，自动通过过滤: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:32,142 - pipeline - INFO - 模拟视频过滤信息已保存到: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rule_filter.json
+2025-05-15 20:07:32,143 - pipeline - INFO - 视频通过规则过滤
+2025-05-15 20:07:32,143 - pipeline - INFO - 开始阶段5: 模型过滤
+2025-05-15 20:07:32,143 - pipeline - INFO - 模型过滤已禁用，自动通过
+2025-05-15 20:07:32,144 - pipeline - INFO - 开始阶段6: 视频转PNG
+2025-05-15 20:07:32,144 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4
+2025-05-15 20:07:32,144 - pipeline - INFO - FFmpeg命令: ffmpeg -i "F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4" -qscale:v 2 "F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rgb/%05d.png" -y
+2025-05-15 20:07:32,166 - pipeline - ERROR - 提取帧时出错: [WinError 2] 系统找不到指定的文件。
+2025-05-15 20:07:32,167 - pipeline - WARNING - 使用FFmpeg提取帧失败，将尝试使用OpenCV
+2025-05-15 20:07:32,169 - pipeline - INFO - 开始提取帧，视频: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\video\video.mp4, 总帧数: 90, FPS: 30.0
+2025-05-15 20:07:32,169 - pipeline - INFO - 提取范围: 0 到 90, 步长: 1
+2025-05-15 20:07:36,108 - pipeline - INFO - 已提取 90 帧到 F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rgb
+2025-05-15 20:07:36,109 - pipeline - INFO - 帧提取成功，耗时: 3.96秒
+2025-05-15 20:07:36,109 - pipeline - INFO - 视频已转换为PNG: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17\rgb
+2025-05-15 20:07:36,109 - pipeline - INFO - 流水线运行成功: F:\24-25spring\DexC2D\gen_dataset\gen_datas\016_cracker_box_17
+2025-05-16 09:31:45,844 - pipeline - ERROR - 在 F:\24-25spring\DexC2D\prompt_and_image 中找不到prompt.txt文件
+2025-05-16 09:31:45,844 - pipeline - ERROR - 找不到提示文件或图像文件，使用--init参数创建必要的目录结构
+2025-05-16 09:32:23,154 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 09:32:23,154 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 09:32:37,493 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 09:33:11,337 - pipeline - ERROR - 登录失败: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 09:33:11,339 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 09:33:11,339 - pipeline - INFO - 关闭浏览器...
+2025-05-16 09:33:13,502 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 09:33:18,504 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 09:33:18,506 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 09:33:19,736 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 09:33:53,530 - pipeline - ERROR - 登录失败: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 09:33:53,532 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 09:33:53,533 - pipeline - INFO - 关闭浏览器...
+2025-05-16 09:33:55,723 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 09:34:00,733 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 09:34:00,733 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 09:34:01,978 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 09:34:15,854 - pipeline - INFO - 关闭浏览器...
+2025-05-16 09:43:34,439 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 09:43:34,445 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 09:43:35,697 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 09:44:08,989 - pipeline - ERROR - 登录失败: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 09:44:08,991 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 09:44:08,991 - pipeline - INFO - 关闭浏览器...
+2025-05-16 09:44:11,160 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:07:39,471 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:07:39,488 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:07:40,737 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 10:07:43,391 - pipeline - INFO - 等待登录按钮出现...
+2025-05-16 10:07:43,650 - pipeline - INFO - 点击登录按钮...
+2025-05-16 10:07:45,697 - pipeline - INFO - 等待用户名输入框出现...
+2025-05-16 10:08:15,800 - pipeline - ERROR - 登录失败: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:08:16,070 - pipeline - INFO - 已保存错误截图: temp\login_error.png
+2025-05-16 10:08:16,070 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:08:16,070 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:08:18,190 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:08:23,194 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:08:23,200 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:08:24,449 - pipeline - INFO - 导航到Sora网站: https://openai.com/sora
+2025-05-16 10:08:27,071 - pipeline - INFO - 等待登录按钮出现...
+2025-05-16 10:08:27,319 - pipeline - INFO - 点击登录按钮...
+2025-05-16 10:08:29,358 - pipeline - INFO - 等待用户名输入框出现...
+2025-05-16 10:08:36,709 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:17:21,553 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:17:21,559 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:17:22,826 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:17:22,826 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:17:22,827 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:17:22,827 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:17:22,827 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:17:24,823 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:17:24,823 - pipeline - INFO - 等待登录按钮出现...
+2025-05-16 10:17:55,696 - pipeline - INFO - 未找到登录按钮，尝试直接访问登录页面
+2025-05-16 10:17:58,279 - pipeline - INFO - 已保存登录页面截图: temp\login_page.png
+2025-05-16 10:17:58,280 - pipeline - INFO - 等待用户名输入框出现...
+2025-05-16 10:18:18,872 - pipeline - ERROR - 登录失败: 未找到用户名输入框
+2025-05-16 10:18:19,174 - pipeline - INFO - 已保存错误截图: temp\login_error.png
+2025-05-16 10:18:19,174 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:18:19,175 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:18:21,332 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:18:26,335 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:18:26,340 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:18:27,575 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:18:27,575 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:18:27,576 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:18:27,576 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:18:27,576 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:18:29,240 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:18:29,240 - pipeline - INFO - 等待登录按钮出现...
+2025-05-16 10:18:29,800 - pipeline - INFO - 未找到登录按钮，尝试直接访问登录页面
+2025-05-16 10:18:29,801 - pipeline - WARNING - 无法找到或点击登录按钮: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28DCC]
+	(No symbol) [0x00007FF773A6F54F]
+	(No symbol) [0x00007FF773AA7242]
+	(No symbol) [0x00007FF773AA1C63]
+	(No symbol) [0x00007FF773AA0D29]
+	(No symbol) [0x00007FF7739F5A55]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	(No symbol) [0x00007FF7739F4AC8]
+	GetHandleVerifier [0x00007FF774046FF8+4180056]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:18:29,802 - pipeline - INFO - 尝试直接导航到登录页面
+2025-05-16 10:18:29,803 - pipeline - ERROR - 登录失败: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28DCC]
+	(No symbol) [0x00007FF773A6F54F]
+	(No symbol) [0x00007FF773AA7242]
+	(No symbol) [0x00007FF773AA1C63]
+	(No symbol) [0x00007FF773AA0D29]
+	(No symbol) [0x00007FF7739F5A55]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	(No symbol) [0x00007FF7739F4AC8]
+	GetHandleVerifier [0x00007FF774046FF8+4180056]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:18:29,805 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:18:29,805 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:18:31,827 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:19:16,612 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:19:16,616 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:19:17,858 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:19:17,858 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:19:17,858 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:19:17,858 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:19:17,858 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:19:19,890 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:19:25,193 - pipeline - INFO - 已保存登录前页面截图: temp\before_login.png
+2025-05-16 10:19:25,194 - pipeline - INFO - 跳转到OpenAI登录页面
+2025-05-16 10:19:30,142 - pipeline - INFO - 已保存登录页面截图: temp\login_page.png
+2025-05-16 10:19:40,417 - pipeline - ERROR - 登录过程中出错: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:19:40,419 - pipeline - INFO - 尝试使用Google登录
+2025-05-16 10:19:54,120 - pipeline - ERROR - Google登录尝试失败: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:19:54,122 - pipeline - ERROR - 所有登录尝试都失败
+2025-05-16 10:19:54,122 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:19:54,122 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:19:56,283 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:20:01,287 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:20:01,292 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:20:02,535 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:20:02,536 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:20:02,536 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:20:02,536 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:20:02,537 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:20:04,136 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:20:09,426 - pipeline - INFO - 已保存登录前页面截图: temp\before_login.png
+2025-05-16 10:20:09,426 - pipeline - INFO - 跳转到OpenAI登录页面
+2025-05-16 10:20:14,543 - pipeline - INFO - 已保存登录页面截图: temp\login_page.png
+2025-05-16 10:20:24,841 - pipeline - ERROR - 登录过程中出错: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A7F4C6]
+	(No symbol) [0x00007FF773A7F77C]
+	(No symbol) [0x00007FF773AD2577]
+	(No symbol) [0x00007FF773AA73BF]
+	(No symbol) [0x00007FF773ACF39C]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:20:24,843 - pipeline - INFO - 尝试使用Google登录
+2025-05-16 10:20:33,872 - pipeline - ERROR - Google登录尝试失败: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A14E35]
+	(No symbol) [0x00007FF773A39DB4]
+	(No symbol) [0x00007FF773AAEE75]
+	(No symbol) [0x00007FF773ACECC2]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:20:33,875 - pipeline - ERROR - 所有登录尝试都失败
+2025-05-16 10:20:33,876 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:20:33,876 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:20:35,969 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:20:40,969 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:20:40,975 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:20:53,427 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:20:53,433 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:20:54,655 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:20:54,655 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:20:54,655 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:20:54,655 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:20:54,656 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:20:56,798 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:21:02,092 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:21:02,097 - pipeline - WARNING - 页面内容不包含Sora相关信息，可能未正确登录
+2025-05-16 10:21:02,098 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:21:02,098 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:21:04,266 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:21:09,278 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:21:09,285 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:21:10,523 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:21:10,523 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:21:10,523 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:21:10,523 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:21:10,523 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:21:12,192 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:21:17,483 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:21:17,489 - pipeline - INFO - 成功加载Sora实验页面
+2025-05-16 10:21:17,489 - pipeline - INFO - 登录成功
+2025-05-16 10:21:17,490 - pipeline - INFO - 开始处理生成流水线...
+2025-05-16 10:21:17,490 - pipeline - INFO - 生成视频，提示: '一只手握住一个饼干盒，将其旋转180度。背景是纯白色的。摄像机保持静止。'
+2025-05-16 10:21:17,786 - pipeline - INFO - 已保存生成前截图: temp\before_create.png
+2025-05-16 10:21:48,891 - pipeline - INFO - 已保存创建页面截图: temp\create_page.png
+2025-05-16 10:22:09,670 - pipeline - ERROR - 生成视频时出错: 未找到提示输入框
+2025-05-16 10:22:09,991 - pipeline - INFO - 已保存错误截图: temp\generate_error.png
+2025-05-16 10:22:09,991 - pipeline - ERROR - 未生成任何视频
+2025-05-16 10:22:09,991 - pipeline - ERROR - 流水线处理失败
+2025-05-16 10:22:09,991 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:22:12,115 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:22:17,126 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:22:17,132 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:22:18,373 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:22:18,373 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:22:18,373 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:22:18,373 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:22:18,374 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:22:19,116 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:22:24,578 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:22:24,582 - pipeline - WARNING - 页面内容不包含Sora相关信息，可能未正确登录
+2025-05-16 10:22:24,583 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:22:24,583 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:22:26,763 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:22:31,766 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:22:31,772 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:22:33,020 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:22:33,021 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:22:33,021 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:22:33,021 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:22:33,021 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:22:34,460 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:22:39,760 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:22:39,765 - pipeline - WARNING - 页面内容不包含Sora相关信息，可能未正确登录
+2025-05-16 10:22:39,765 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:22:39,765 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:22:41,904 - pipeline - WARNING - 处理失败，重试...
+2025-05-16 10:26:23,080 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:26:23,086 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:26:24,351 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:26:24,351 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:26:24,352 - pipeline - INFO - 使用用户名: lzw***com
+2025-05-16 10:26:24,352 - pipeline - INFO - 尝试登录到Sora...
+2025-05-16 10:26:24,352 - pipeline - INFO - 导航到Sora网站: https://platform.openai.com/experimental/sora
+2025-05-16 10:26:25,476 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:26:30,778 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:26:30,784 - pipeline - WARNING - 页面内容不包含Sora相关信息，可能未正确登录
+2025-05-16 10:26:30,784 - pipeline - ERROR - 登录失败，终止处理
+2025-05-16 10:26:30,784 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:26:32,924 - pipeline - ERROR - 在 1 次尝试后仍然失败，终止处理
+2025-05-16 10:40:10,608 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:40:10,613 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 10:40:10,613 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:40:15,011 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:40:15,011 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:40:15,011 - pipeline - ERROR - 未在配置文件或环境变量中找到Sora登录凭据
+2025-05-16 10:40:15,011 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:40:17,118 - pipeline - ERROR - 在 1 次尝试后仍然失败，终止处理
+2025-05-16 10:41:59,419 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 10:41:59,423 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 10:41:59,423 - pipeline - INFO - 启动Chrome浏览器...
+2025-05-16 10:42:00,667 - pipeline - INFO - 初始化Sora Web客户端
+2025-05-16 10:42:00,667 - pipeline - INFO - 模拟模式已禁用: use_mock=False
+2025-05-16 10:42:00,667 - pipeline - INFO - 尝试访问Sora网站...
+2025-05-16 10:42:00,667 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 10:42:04,761 - pipeline - INFO - 已保存初始页面截图: temp\initial_page.png
+2025-05-16 10:42:10,062 - pipeline - INFO - 已保存Sora页面截图: temp\sora_page.png
+2025-05-16 10:42:10,065 - pipeline - WARNING - 需要登录，检测到登录页面
+2025-05-16 10:42:42,257 - pipeline - ERROR - 导航到Sora页面出错: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28F9A]
+	(No symbol) [0x00007FF773A14E35]
+	(No symbol) [0x00007FF773A39DB4]
+	(No symbol) [0x00007FF773AAEE75]
+	(No symbol) [0x00007FF773ACECC2]
+	(No symbol) [0x00007FF773AA7153]
+	(No symbol) [0x00007FF773A70421]
+	(No symbol) [0x00007FF773A711B3]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	GetHandleVerifier [0x00007FF773C652B4+109332]
+	GetHandleVerifier [0x00007FF773C65462+109762]
+	GetHandleVerifier [0x00007FF773C4BA79+4825]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:42:42,333 - pipeline - ERROR - 保存错误截图失败: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x00007FF773C5CF65+75717]
+	GetHandleVerifier [0x00007FF773C5CFC0+75808]
+	(No symbol) [0x00007FF773A28DCC]
+	(No symbol) [0x00007FF773A6F54F]
+	(No symbol) [0x00007FF773AA7242]
+	(No symbol) [0x00007FF773AA1C63]
+	(No symbol) [0x00007FF773AA0D29]
+	(No symbol) [0x00007FF7739F5A55]
+	GetHandleVerifier [0x00007FF773F5D74D+3223469]
+	GetHandleVerifier [0x00007FF773F57CF2+3200338]
+	GetHandleVerifier [0x00007FF773F75B23+3322755]
+	GetHandleVerifier [0x00007FF773C76A3A+180890]
+	GetHandleVerifier [0x00007FF773C7E13F+211359]
+	(No symbol) [0x00007FF7739F4AC8]
+	GetHandleVerifier [0x00007FF774046FF8+4180056]
+	BaseThreadInitThunk [0x00007FFD88B9257D+29]
+	RtlUserThreadStart [0x00007FFD89BAAA48+40]
+
+2025-05-16 10:42:42,335 - pipeline - ERROR - 访问Sora失败，终止处理
+2025-05-16 10:42:42,335 - pipeline - INFO - 关闭浏览器...
+2025-05-16 10:42:44,365 - pipeline - ERROR - 在 1 次尝试后仍然失败，终止处理
+2025-05-16 11:08:03,462 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 11:08:03,468 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:08:03,772 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:08:05,776 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:08:05,776 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:08:13,876 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 11:08:29,699 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:08:29,979 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:08:31,994 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:08:31,994 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:08:40,101 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 11:08:56,826 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:08:57,103 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:08:59,108 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:08:59,108 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:09:06,148 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:09:06,428 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:09:08,436 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:09:08,436 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:09:16,566 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 11:09:27,443 - pipeline - ERROR - 未能成功生成视频
+2025-05-16 11:16:00,485 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 11:16:00,490 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:16:00,782 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:16:02,796 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:16:02,796 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:16:13,429 - pipeline - INFO - 已按下回车键，正在加载页面...
+2025-05-16 11:16:13,429 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 11:16:27,361 - pipeline - WARNING - 检查登录按钮出错: 
+2025-05-16 11:16:27,363 - pipeline - INFO - Sora页面已加载
+2025-05-16 11:16:27,364 - pipeline - ERROR - 读取提示文件时出错: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-05-16 11:16:32,380 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:16:32,661 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:16:34,666 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:16:34,667 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:34:30,082 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 11:34:30,086 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 11:34:30,384 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 11:34:32,390 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 11:34:32,390 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 11:34:43,498 - pipeline - INFO - 尝试第 1 次按下回车键...
+2025-05-16 11:34:45,506 - pipeline - INFO - 尝试第 2 次按下回车键...
+2025-05-16 11:34:47,516 - pipeline - INFO - 尝试第 3 次按下回车键...
+2025-05-16 11:34:49,540 - pipeline - INFO - 尝试使用Alt+Enter组合键
+2025-05-16 11:34:50,549 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 11:35:07,620 - pipeline - WARNING - 需要登录，检测到登录页面
+2025-05-16 11:36:33,192 - pipeline - INFO - Sora页面已加载
+2025-05-16 11:36:33,193 - pipeline - INFO - 成功读取提示文件, 内容: '一只手握住一个饼干盒，将其旋转180度。背景是纯白色的。摄像机保持静止。'
+2025-05-16 11:36:33,193 - pipeline - INFO - 生成视频，提示: '一只手握住一个饼干盒，将其旋转180度。背景是纯白色的。摄像机保持静止。'
+2025-05-16 11:36:46,223 - pipeline - INFO - 找到文本输入区域: Box(left=627, top=1093, width=200, height=100)
+2025-05-16 11:36:53,195 - pipeline - INFO - 设置视频参数...
+2025-05-16 11:36:53,498 - pipeline - INFO - 找到设置按钮: Box(left=1289, top=1853, width=200, height=100)
+2025-05-16 11:37:24,810 - pipeline - INFO - 上传图片: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 11:37:25,124 - pipeline - WARNING - 检查上传按钮出错: 
+2025-05-16 11:37:25,127 - pipeline - INFO - 找不到上传按钮，使用默认位置 (384, 216)
+2025-05-16 11:37:28,157 - pipeline - INFO - 输入图像路径: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 11:37:34,582 - pipeline - INFO - 点击生成按钮...
+2025-05-16 11:37:34,876 - pipeline - WARNING - 检查生成按钮出错: 
+2025-05-16 11:37:34,879 - pipeline - INFO - 找不到生成按钮，使用默认位置 (3456, 1944)
+2025-05-16 11:37:35,885 - pipeline - INFO - 等待Sora生成视频，可能需要几分钟...
+2025-05-16 11:37:36,192 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 11:37:41,536 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 11:37:46,873 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 12:03:48,536 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:14:35,710 - pipeline - INFO - 开始处理，提示文件: F:\24-25spring\DexC2D\prompt_and_image\prompt.txt，图像文件: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:14:35,716 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 12:14:36,016 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 12:14:38,030 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 12:14:38,030 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 12:14:47,630 - pipeline - INFO - 按下回车键开始导航...
+2025-05-16 12:14:52,184 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 12:15:10,218 - pipeline - WARNING - 检查登录按钮出错: 
+2025-05-16 12:15:10,220 - pipeline - INFO - Sora页面已加载
+2025-05-16 12:15:10,225 - pipeline - INFO - 使用latin-1编码成功读取提示文件
+2025-05-16 12:15:24,376 - pipeline - WARNING - 检查文本输入区域出错: 
+2025-05-16 12:15:24,380 - pipeline - INFO - 找不到输入框，使用默认位置 (1920, 864)
+2025-05-16 12:15:31,506 - pipeline - INFO - 设置视频参数...
+2025-05-16 12:15:31,826 - pipeline - INFO - 找到设置按钮: Box(left=2421, top=1951, width=200, height=100)
+2025-05-16 12:16:02,891 - pipeline - INFO - 上传图片: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:16:03,183 - pipeline - INFO - 找到上传按钮: Box(left=2421, top=1951, width=200, height=100)
+2025-05-16 12:16:06,216 - pipeline - INFO - 输入图像路径: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:16:12,778 - pipeline - INFO - 点击生成按钮...
+2025-05-16 12:16:13,112 - pipeline - INFO - 找到生成按钮: Box(left=2421, top=1952, width=200, height=100)
+2025-05-16 12:16:14,127 - pipeline - INFO - 等待Sora生成视频，可能需要几分钟...
+2025-05-16 12:16:14,437 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 12:16:19,757 - pipeline - INFO - 检测到下载按钮，视频已生成完成
+2025-05-16 12:16:20,245 - pipeline - INFO - 已保存生成完成截图
+2025-05-16 12:16:20,245 - pipeline - INFO - 开始下载视频...
+2025-05-16 12:16:21,041 - pipeline - INFO - 找到下载按钮 #1: Box(left=2421, top=1952, width=200, height=100)
+2025-05-16 12:16:25,368 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 12:16:30,888 - pipeline - INFO - 找到 4 个视频文件
+2025-05-16 12:16:30,912 - pipeline - INFO - 视频 #1 时长: 5.00秒
+2025-05-16 12:16:30,912 - pipeline - INFO - 视频 #1 已保存: temp\video_1.mp4
+2025-05-16 12:16:30,930 - pipeline - INFO - 视频 #2 时长: 5.00秒
+2025-05-16 12:16:30,930 - pipeline - INFO - 视频 #2 已保存: temp\video_2.mp4
+2025-05-16 12:16:30,947 - pipeline - INFO - 视频 #3 时长: 5.00秒
+2025-05-16 12:16:30,947 - pipeline - INFO - 视频 #3 已保存: temp\video_3.mp4
+2025-05-16 12:16:30,964 - pipeline - INFO - 视频 #4 时长: 5.00秒
+2025-05-16 12:16:30,965 - pipeline - INFO - 视频 #4 已保存: temp\video_4.mp4
+2025-05-16 12:16:30,965 - pipeline - INFO - 过滤视频 #1: temp\video_1.mp4
+2025-05-16 12:16:31,105 - pipeline - INFO - YOLOv8模型已加载
+2025-05-16 12:16:31,185 - pipeline - INFO - 检测到模拟视频，自动通过过滤: temp\video_1.mp4
+2025-05-16 12:16:31,185 - pipeline - INFO - 模拟视频过滤信息已保存到: temp\video_1.json
+2025-05-16 12:16:31,187 - pipeline - INFO - 视频 #1 通过过滤
+2025-05-16 12:16:31,187 - pipeline - INFO - 过滤视频 #2: temp\video_2.mp4
+2025-05-16 12:16:31,229 - pipeline - INFO - YOLOv8模型已加载
+2025-05-16 12:16:31,304 - pipeline - INFO - 检测到模拟视频，自动通过过滤: temp\video_2.mp4
+2025-05-16 12:16:31,305 - pipeline - INFO - 模拟视频过滤信息已保存到: temp\video_2.json
+2025-05-16 12:16:31,306 - pipeline - INFO - 视频 #2 通过过滤
+2025-05-16 12:16:31,306 - pipeline - INFO - 过滤视频 #3: temp\video_3.mp4
+2025-05-16 12:16:31,348 - pipeline - INFO - YOLOv8模型已加载
+2025-05-16 12:16:31,422 - pipeline - INFO - 检测到模拟视频，自动通过过滤: temp\video_3.mp4
+2025-05-16 12:16:31,422 - pipeline - INFO - 模拟视频过滤信息已保存到: temp\video_3.json
+2025-05-16 12:16:31,423 - pipeline - INFO - 视频 #3 通过过滤
+2025-05-16 12:16:31,423 - pipeline - INFO - 过滤视频 #4: temp\video_4.mp4
+2025-05-16 12:16:31,466 - pipeline - INFO - YOLOv8模型已加载
+2025-05-16 12:16:31,545 - pipeline - INFO - 检测到模拟视频，自动通过过滤: temp\video_4.mp4
+2025-05-16 12:16:31,545 - pipeline - INFO - 模拟视频过滤信息已保存到: temp\video_4.json
+2025-05-16 12:16:31,546 - pipeline - INFO - 视频 #4 通过过滤
+2025-05-16 12:16:31,546 - pipeline - INFO - 共有 4 个视频通过过滤
+2025-05-16 12:16:31,547 - pipeline - INFO - 将视频 #1 转换为帧
+2025-05-16 12:16:31,548 - pipeline - INFO - 使用FFmpeg提取帧，命令: ffmpeg -i "temp\video_1.mp4" -vf "fps=30" -qscale:v 2 "test_output\video_1\rgb/temp_%06d.png" -y
+2025-05-16 12:16:31,575 - pipeline - ERROR - 使用FFmpeg提取帧时出错: [WinError 2] 系统找不到指定的文件。，将尝试使用OpenCV
+2025-05-16 12:17:03,175 - pipeline - INFO - OpenCV成功提取了 150 帧
+2025-05-16 12:17:03,176 - pipeline - INFO - 帧提取完成，耗时: 31.63秒
+2025-05-16 12:17:03,181 - pipeline - INFO - 视频 #150 已处理并保存到: test_output\video_1
+2025-05-16 12:17:03,181 - pipeline - INFO - 将视频 #2 转换为帧
+2025-05-16 12:17:03,182 - pipeline - INFO - 使用FFmpeg提取帧，命令: ffmpeg -i "temp\video_2.mp4" -vf "fps=30" -qscale:v 2 "test_output\video_2\rgb/temp_%06d.png" -y
+2025-05-16 12:17:03,204 - pipeline - ERROR - 使用FFmpeg提取帧时出错: [WinError 2] 系统找不到指定的文件。，将尝试使用OpenCV
+2025-05-16 12:17:28,297 - pipeline - INFO - OpenCV成功提取了 150 帧
+2025-05-16 12:17:28,298 - pipeline - INFO - 帧提取完成，耗时: 25.12秒
+2025-05-16 12:17:28,303 - pipeline - INFO - 视频 #150 已处理并保存到: test_output\video_2
+2025-05-16 12:17:28,305 - pipeline - INFO - 将视频 #3 转换为帧
+2025-05-16 12:17:28,305 - pipeline - INFO - 使用FFmpeg提取帧，命令: ffmpeg -i "temp\video_3.mp4" -vf "fps=30" -qscale:v 2 "test_output\video_3\rgb/temp_%06d.png" -y
+2025-05-16 12:17:28,328 - pipeline - ERROR - 使用FFmpeg提取帧时出错: [WinError 2] 系统找不到指定的文件。，将尝试使用OpenCV
+2025-05-16 12:18:06,046 - pipeline - INFO - OpenCV成功提取了 150 帧
+2025-05-16 12:18:06,047 - pipeline - INFO - 帧提取完成，耗时: 37.74秒
+2025-05-16 12:18:06,052 - pipeline - INFO - 视频 #150 已处理并保存到: test_output\video_3
+2025-05-16 12:18:06,053 - pipeline - INFO - 将视频 #4 转换为帧
+2025-05-16 12:18:06,053 - pipeline - INFO - 使用FFmpeg提取帧，命令: ffmpeg -i "temp\video_4.mp4" -vf "fps=30" -qscale:v 2 "test_output\video_4\rgb/temp_%06d.png" -y
+2025-05-16 12:18:06,076 - pipeline - ERROR - 使用FFmpeg提取帧时出错: [WinError 2] 系统找不到指定的文件。，将尝试使用OpenCV
+2025-05-16 12:18:34,724 - pipeline - INFO - OpenCV成功提取了 150 帧
+2025-05-16 12:18:34,725 - pipeline - INFO - 帧提取完成，耗时: 28.67秒
+2025-05-16 12:18:34,730 - pipeline - INFO - 视频 #150 已处理并保存到: test_output\video_4
+2025-05-16 12:18:39,745 - pipeline - INFO - 启动桌面上的Chrome浏览器...
+2025-05-16 12:18:40,039 - pipeline - INFO - 使用默认Chrome配置文件
+2025-05-16 12:18:42,054 - pipeline - INFO - Chrome浏览器已激活或启动
+2025-05-16 12:18:42,054 - pipeline - INFO - 导航到Sora网站: https://sora.chatgpt.com/explore
+2025-05-16 12:18:51,667 - pipeline - INFO - 按下回车键开始导航...
+2025-05-16 12:18:56,217 - pipeline - INFO - 等待Sora页面加载...
+2025-05-16 12:19:14,239 - pipeline - WARNING - 需要登录，检测到登录页面
+2025-05-16 12:20:39,641 - pipeline - INFO - Sora页面已加载
+2025-05-16 12:20:39,643 - pipeline - INFO - 使用latin-1编码成功读取提示文件
+2025-05-16 12:20:53,713 - pipeline - INFO - 找到文本输入区域: Box(left=1583, top=1863, width=200, height=100)
+2025-05-16 12:21:01,646 - pipeline - INFO - 设置视频参数...
+2025-05-16 12:21:01,952 - pipeline - WARNING - 检查设置按钮出错: 
+2025-05-16 12:21:01,955 - pipeline - INFO - 找不到设置按钮，使用默认位置 (3456, 216)
+2025-05-16 12:21:32,922 - pipeline - INFO - 上传图片: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:21:33,214 - pipeline - WARNING - 检查上传按钮出错: 
+2025-05-16 12:21:33,217 - pipeline - INFO - 找不到上传按钮，使用默认位置 (384, 216)
+2025-05-16 12:21:36,235 - pipeline - INFO - 输入图像路径: F:\24-25spring\DexC2D\prompt_and_image\color_000000.png
+2025-05-16 12:21:42,669 - pipeline - INFO - 点击生成按钮...
+2025-05-16 12:21:43,050 - pipeline - WARNING - 检查生成按钮出错: 
+2025-05-16 12:21:43,054 - pipeline - INFO - 找不到生成按钮，使用默认位置 (3456, 1944)
+2025-05-16 12:21:44,069 - pipeline - INFO - 等待Sora生成视频，可能需要几分钟...
+2025-05-16 12:21:44,390 - pipeline - WARNING - 检查下载按钮出错: 
+2025-05-16 12:21:49,683 - pipeline - INFO - 检测到下载按钮，视频已生成完成
+2025-05-16 12:21:50,196 - pipeline - INFO - 已保存生成完成截图
+2025-05-16 12:21:50,196 - pipeline - INFO - 开始下载视频...
+2025-05-16 12:21:50,941 - pipeline - INFO - 找到下载按钮 #1: Box(left=2421, top=1951, width=200, height=100)
+2025-05-16 12:21:50,942 - pipeline - ERROR - 下载视频时出错: PyAutoGUI fail-safe triggered from mouse moving to a corner of the screen. To disable this fail-safe, set pyautogui.FAILSAFE to False. DISABLING FAIL-SAFE IS NOT RECOMMENDED.
+2025-05-16 12:21:50,942 - pipeline - ERROR - 未找到下载的视频文件
+2025-05-16 12:21:50,943 - pipeline - ERROR - 未生成任何视频
+2025-05-16 12:21:50,943 - pipeline - ERROR - 未能成功生成视频

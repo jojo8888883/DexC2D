@@ -16,10 +16,14 @@ prompt:
 
 # Sora视频生成阶段配置
 sora:
-  api_key: null                # API密钥，如果为null则从环境变量OPENAI_API_KEY获取
+  # Chrome浏览器配置
+  chrome_user_dir: null        # Chrome用户数据目录路径，如果为null则使用系统默认位置
+                               # Windows通常为: C:\Users\用户名\AppData\Local\Google\Chrome\User Data
+                               # macOS通常为: ~/Library/Application Support/Google/Chrome
   max_attempts: 3              # 最大尝试次数
   poll_interval: 10            # 轮询间隔（秒）
-  use_mock: true               # 是否使用模拟模式（不调用真实API）
+  use_mock: false              # 是否使用模拟模式（不调用真实API）
+  headless: false              # 是否使用无头模式运行浏览器
 
 # 规则过滤阶段配置
 rule_filter:
