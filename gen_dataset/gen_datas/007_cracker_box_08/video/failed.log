@@ -1,3 +1,0 @@
-提示: 静止镜头。一只手握住饼干盒，在白色背景前展示。
-错误: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-api-key. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
-时间: 2025-05-15 16:15:17

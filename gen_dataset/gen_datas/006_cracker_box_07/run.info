@@ -1,7 +1,0 @@
-object=cracker_box
-version=07
-sequence=006
-timestamp=2025-05-15 16:14:01
-status=failed
-retry_count=0
-stages={'capture': {'status': 'success', 'image_path': 'F:\\24-25spring\\DexC2D\\gen_dataset\\gen_datas\\006_cracker_box_07\\rgb_init.png'}, 'prompt': {'status': 'success', 'prompt': '静止镜头。一只手握住饼干盒，在白色背景前展示。'}, 'sora': {'status': 'failed', 'error': '视频生成失败'}, 'rule_filter': {'status': 'pending'}, 'model_filter': {'status': 'pending'}, 'video2png': {'status': 'pending'}}

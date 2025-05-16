@@ -1,7 +1,0 @@
-object=cracker_box
-version=14
-sequence=013
-timestamp=2025-05-15 16:44:57
-status=failed
-retry_count=0
-stages={'capture': {'status': 'success', 'image_path': 'F:\\24-25spring\\DexC2D\\gen_dataset\\gen_datas\\013_cracker_box_14\\rgb_init.png'}, 'prompt': {'status': 'success', 'prompt': '静止镜头。一只手握住饼干盒，在白色背景前展示。'}, 'sora': {'status': 'success', 'video_path': 'F:\\24-25spring\\DexC2D\\gen_dataset\\gen_datas\\013_cracker_box_14\\video\\video.mp4'}, 'rule_filter': {'status': 'success', 'passed': True}, 'model_filter': {'status': 'skipped'}, 'video2png': {'status': 'failed', 'error': '视频转PNG失败'}}
