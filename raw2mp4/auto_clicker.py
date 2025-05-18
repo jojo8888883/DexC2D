@@ -74,6 +74,10 @@ class AutoClicker:
             button_y = location.top + button_offset[1]
             return self.click_button(button_x, button_y)
         return False
+    
+    def press_enter(self):
+        pyautogui.press('enter')
+
 
 def main():
     # 创建自动点击器实例
