@@ -7,5 +7,10 @@ __pycache__/
 .idea/
 
 # ---- 可选：不想纳入版本控制的图片或大文件 ----
-*.png
 *.jpg
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.gif
+*.webp

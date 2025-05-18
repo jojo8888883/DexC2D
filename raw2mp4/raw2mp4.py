@@ -3,7 +3,7 @@
 网页缩放比例：80%
 """
 import time
-from auto_clicker import AutoClicker
+from raw2mp4.auto_clicker import AutoClicker
 import webbrowser
 import os
 import psutil
@@ -16,7 +16,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def read_prompt_file(file_path="raw2mp4\prompt.txt"):
+def read_prompt_file(file_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompt.txt")):
     """读取prompt文件内容"""
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -103,7 +103,8 @@ def auto_sora_workflow():
     time.sleep(2)
     logger.info("等待生成完毕...")
     # 等待图像出现，并根据返回结果决定后续操作
-    image_result = auto_clicker.wait_for_image(r"raw2mp4\image.png", timeout=300, confidence=0.9)
+    image_path = os.path.join(os.path.dirname(__file__), "image.png")
+    image_result = auto_clicker.wait_for_image(image_path, timeout=300, confidence=0.9)
     if image_result:
         logger.info("成功找到目标图像，继续执行正常流程...")
         time.sleep(2)

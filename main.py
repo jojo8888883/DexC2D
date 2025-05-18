@@ -1,11 +1,9 @@
-from select_mp4.selector import main
-from raw2mp4.raw2mp4 import main
+from select_mp4.selector import main as select_mp4_main
+from raw2mp4.raw2mp4 import main as raw2mp4_main
 
-if __name__ == "__main__":
-    # 选择视频
-    main(clear_first=True, import_videos=True, video_count=4)
+# 先运行raw2mp4
+raw2mp4_main()
 
-    # 转换视频
-    main(clear_first=True, import_videos=True, video_count=4)
-
+# 再运行select_mp4
+select_mp4_main()
 
