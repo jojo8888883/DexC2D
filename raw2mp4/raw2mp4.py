@@ -42,7 +42,7 @@ COORDINATES = {
 # 路径配置
 COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "image.png")
 PROMPT_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompt.txt")
-INPUT_IMAGE_DIR = r"F:\24-25spring\DexC2D\capture"
+INPUT_IMAGE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "capture")
 
 def set_input_image_dir(directory):
     """设置输入图像目录路径"""
@@ -94,12 +94,27 @@ def open_sora_page():
         return False
 
 def close_chrome():
-    """关闭所有Chrome进程"""
+    """关闭所有Chrome进程并清理用户数据"""
     try:
+        # 关闭所有Chrome进程
         for proc in psutil.process_iter(['name']):
             if proc.info['name'] and 'chrome.exe' in proc.info['name'].lower():
                 proc.kill()
-        logger.info("Chrome 浏览器已成功关闭")
+        
+        # 等待进程完全关闭
+        time.sleep(2)
+        
+        # 清理Chrome用户数据目录中的崩溃状态文件
+        chrome_user_data = os.path.expanduser('~') + r'\AppData\Local\Google\Chrome\User Data'
+        crashpad_state = os.path.join(chrome_user_data, 'Crashpad', 'state')
+        if os.path.exists(crashpad_state):
+            try:
+                os.remove(crashpad_state)
+                logger.info("已清理Chrome崩溃状态文件")
+            except Exception as e:
+                logger.warning(f"清理崩溃状态文件时出错: {str(e)}")
+        
+        logger.info("Chrome 浏览器已成功关闭并清理")
         return True
     except Exception as e:
         logger.error(f"关闭 Chrome 时出错: {str(e)}")
@@ -151,7 +166,6 @@ def upload_image_and_prompt(auto_clicker):
     time.sleep(2)
     auto_clicker.press_enter()
     time.sleep(1)
-    auto_clicker.press_enter()
     
     # 选择文件
     auto_clicker.click_button(*COORDINATES["file_select"])
@@ -162,8 +176,6 @@ def upload_image_and_prompt(auto_clicker):
     # 输入prompt
     auto_clicker.click_button(*COORDINATES["prompt_input"])
     time.sleep(5)
-    auto_clicker.press_shift()
-    time.sleep(1)
     prompt_text = read_prompt_file()
     auto_clicker.paste_text(prompt_text)
     time.sleep(2)
@@ -221,7 +233,7 @@ def auto_sora_workflow():
     # 等待生成结果
     logger.info("等待生成完毕...")
     image_path = COMPLETE_IMAGE_PATH
-    image_result = auto_clicker.wait_for_image(image_path, timeout=300, confidence=0.9)
+    image_result = auto_clicker.wait_for_image(image_path, timeout=600, confidence=0.9)
     
     # 根据生成结果执行相应流程
     if image_result:

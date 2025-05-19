@@ -2,6 +2,7 @@ import pyautogui
 import time
 import pygetwindow as gw
 import logging
+import pyperclip
 from typing import Tuple, Optional
 
 # 配置日志
@@ -38,13 +39,16 @@ class AutoClicker:
             return False
             
     def paste_text(self, text: str) -> bool:
-        """模拟粘贴文本"""
+        """使用剪贴板粘贴文本"""
         try:
-            pyautogui.write(text)
-            logger.info(f"成功输入文本：{text}")
+            # 将文本复制到剪贴板
+            pyperclip.copy(text)
+            # 使用Ctrl+V粘贴
+            pyautogui.hotkey('ctrl', 'v')
+            logger.info(f"成功粘贴文本：{text}")
             return True
         except Exception as e:
-            logger.error(f"输入文本失败：{str(e)}")
+            logger.error(f"粘贴文本失败：{str(e)}")
             return False
             
     def wait_for_image(self, image_path: str, timeout: int = 30, confidence: float = 0.8) -> Optional[Tuple[int, int, int, int]]:
