@@ -21,7 +21,7 @@ COORDINATES = {
     "add_image_button": (1478, 1920),
     "local_image_button": (1633, 1820),
     "file_path_input": (1052, 97),
-    "file_select": (460, 347),
+    "file_select": (682, 367),
     "prompt_input": (1726, 1931),
     "view_all_videos": (3549, 399),
     "back_button": (3679, 2005),
@@ -42,7 +42,7 @@ COORDINATES = {
 # 路径配置
 COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "image.png")
 PROMPT_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompt.txt")
-INPUT_IMAGE_DIR = r"F:\24-25spring\DEXHGR\cap2raw\left_highest\tomato_soup_can"
+INPUT_IMAGE_DIR = r"F:\24-25spring\DexC2D\capture"
 
 def set_input_image_dir(directory):
     """设置输入图像目录路径"""

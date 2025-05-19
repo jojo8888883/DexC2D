@@ -1,13 +1,14 @@
 import os
 from select_mp4.selector import main as select_mp4_main
 from raw2mp4.raw2mp4 import main as raw2mp4_main, set_input_image_dir as raw2mp4_set_input_dir
+from capture.capture import capture_single_frame
 
 class Configuration:
     """配置管理类，用于控制全局参数"""
     
     def __init__(self):
         self.object_name = "tomato soup can"  # 默认物体名称
-        self.input_image_dir = r"F:\24-25spring\DEXHGR\cap2raw\left_highest\tomato_soup_can"  # 默认图像目录
+        self.input_image_dir = os.path.join(os.path.dirname(__file__), "capture")  # 默认图像目录改为capture文件夹
         self.prompt_file_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
         self.current_object_in_prompt = "tomato soup can"  # 记录当前prompt中的物体名称
     
@@ -71,14 +72,17 @@ def main(object_name=None, input_image_dir=None):
     
     if input_image_dir:
         config.set_input_image_dir(input_image_dir)
+    
+    # 先运行capture模块
+    capture_single_frame()
         
-    # 先运行raw2mp4
+    # 再运行raw2mp4
     raw2mp4_main()
 
-    # 再运行select_mp4
+    # 最后运行select_mp4
     select_mp4_main()
 
 if __name__ == "__main__":
     # 示例：使用默认配置运行
-    main("tomato_soup_can",r"F:\24-25spring\DEXHGR\cap2raw\left_highest\tomato_soup_can")
+    main("tomato soup can")
 
