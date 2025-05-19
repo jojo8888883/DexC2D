@@ -78,6 +78,8 @@ class AutoClicker:
     def press_enter(self):
         pyautogui.press('enter')
 
+    def press_shift(self):
+        pyautogui.press('shift')
 
 def main():
     # 创建自动点击器实例
