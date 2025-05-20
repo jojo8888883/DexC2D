@@ -18,3 +18,5 @@ __pycache__/
 *.webp
 *.obj
 *.mtl
+
+gen_dataset/
