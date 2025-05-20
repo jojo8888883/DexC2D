@@ -31,6 +31,7 @@ COORDINATES = {
     "refresh_button": (195, 127),
     "activity_button": (3674, 307),
     "latest_video_set": (3465, 417),
+    "close_button": (3792, 30),
     "videos": {
         "top_left": (1317, 699),
         "top_right": (2511, 693),
@@ -40,7 +41,7 @@ COORDINATES = {
 }
 
 # 路径配置
-COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "image.png")
+COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "complete.jpg")
 PROMPT_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompt.txt")
 INPUT_IMAGE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "capture")
 
@@ -94,27 +95,14 @@ def open_sora_page():
         return False
 
 def close_chrome():
-    """关闭所有Chrome进程并清理用户数据"""
+    """关闭Chrome浏览器"""
     try:
-        # 关闭所有Chrome进程
-        for proc in psutil.process_iter(['name']):
-            if proc.info['name'] and 'chrome.exe' in proc.info['name'].lower():
-                proc.kill()
-        
-        # 等待进程完全关闭
+        # 点击关闭按钮
+        auto_clicker = AutoClicker()
+        auto_clicker.click_button(*COORDINATES["close_button"])
         time.sleep(2)
         
-        # 清理Chrome用户数据目录中的崩溃状态文件
-        chrome_user_data = os.path.expanduser('~') + r'\AppData\Local\Google\Chrome\User Data'
-        crashpad_state = os.path.join(chrome_user_data, 'Crashpad', 'state')
-        if os.path.exists(crashpad_state):
-            try:
-                os.remove(crashpad_state)
-                logger.info("已清理Chrome崩溃状态文件")
-            except Exception as e:
-                logger.warning(f"清理崩溃状态文件时出错: {str(e)}")
-        
-        logger.info("Chrome 浏览器已成功关闭并清理")
+        logger.info("Chrome 浏览器已成功关闭")
         return True
     except Exception as e:
         logger.error(f"关闭 Chrome 时出错: {str(e)}")
@@ -222,7 +210,7 @@ def auto_sora_workflow():
         close_chrome()
         return False
     
-    time.sleep(6)
+    time.sleep(10)
     
     # 初始化自动点击器
     auto_clicker = AutoClicker()

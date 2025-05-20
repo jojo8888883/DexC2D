@@ -3,10 +3,12 @@ import logging
 from select_mp4.selector import main as select_mp4_main
 from raw2mp4.raw2mp4 import main as raw2mp4_main, set_input_image_dir as raw2mp4_set_input_dir
 from capture.capture import capture_single_frame
+from mp4_to_data.mp4_to_data import process_videos
 
 # 全局配置
 # 基础配置
-OBJECT_NAME = "test"  # 当前要处理的物体名称
+OBJECT_NAME = "bottle"  # 当前要处理的物体名称
+VIEWPOINT = "front"  # 当前要处理的视角
 # prompt.txt中当前记录的物体名称，用于跟踪prompt文件的更新历史
 # 如果手动修改prompt.txt，只需要同时更新CURRENT_OBJECT_IN_PROMPT即可
 CURRENT_OBJECT_IN_PROMPT = "tomato soup can"  
@@ -34,6 +36,7 @@ class Configuration:
     
     def __init__(self):
         self.object_name = OBJECT_NAME
+        self.viewpoint = VIEWPOINT
         self.input_image_dir = INPUT_IMAGE_DIR
         self.prompt_file_path = PROMPT_FILE_PATH
         self.camera_params_path = CAMERA_PARAMS_PATH
@@ -96,25 +99,44 @@ class Configuration:
             logger.error(f"更新prompt文件时出错: {str(e)}")
             return False
 
+    def set_viewpoint(self, viewpoint: str):
+        """设置视角名称"""
+        self.viewpoint = viewpoint
+        return self
+
 # 创建全局配置实例
 config = Configuration()
 
 def main():
     """主函数"""
     logger.info("开始执行主程序")
-    logger.info(f"当前配置: 物体名称={config.object_name}, 输入目录={config.input_image_dir}")
+    logger.info(f"当前配置: 物体名称={config.object_name}, 视角={config.viewpoint}, 输入目录={config.input_image_dir}")
     
-    # 先运行capture模块
-    capture_single_frame()
-    logger.info("完成图像捕获")
-        
-    # 再运行raw2mp4
-    raw2mp4_main()
-    logger.info("完成视频转换")
+    while True:
+        # 先运行capture模块
+        capture_single_frame()
+        logger.info("完成图像捕获")
+            
+        # 再运行raw2mp4
+        raw2mp4_main()
+        logger.info("完成视频转换")
 
-    # 最后运行select_mp4
-    select_mp4_main()
-    logger.info("完成视频选择")
+        # 运行select_mp4
+        select_mp4_main()
+        logger.info("完成视频选择")
+
+        # 处理视频数据
+        success, need_retry = process_videos(config.object_name, config.viewpoint)
+        if success:
+            logger.info("成功处理视频数据")
+            break
+        elif need_retry:
+            logger.warning("未找到合适的视频，将重新生成")
+            continue
+        else:
+            logger.error("处理视频数据时发生错误")
+            break
+
     logger.info("程序执行完成")
 
 if __name__ == "__main__":

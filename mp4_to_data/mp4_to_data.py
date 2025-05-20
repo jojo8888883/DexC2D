@@ -3,7 +3,7 @@ import shutil
 import cv2
 from pathlib import Path
 
-def process_videos(object_name: str, viewpoint: str) -> bool:
+def process_videos(object_name: str, viewpoint: str) -> tuple[bool, bool]:
     """
     处理static_videos中的视频文件，转换为所需的数据格式
     
@@ -12,19 +12,19 @@ def process_videos(object_name: str, viewpoint: str) -> bool:
         viewpoint: 视角名称
     
     Returns:
-        bool: 是否成功找到并处理了视频文件
+        tuple[bool, bool]: (是否成功处理了视频文件, 是否需要重新生成视频)
     """
     # 检查static_videos目录是否存在
     static_videos_dir = Path("static_videos")
     if not static_videos_dir.exists():
         print("static_videos目录不存在")
-        return False
+        return False, True
     
     # 获取所有mp4文件
     mp4_files = list(static_videos_dir.glob("*.mp4"))
     if not mp4_files:
         print("未找到mp4文件")
-        return False
+        return False, True
     
     # 创建gen_dataset目录结构
     gen_dataset_dir = Path("gen_dataset")
@@ -81,8 +81,8 @@ def process_videos(object_name: str, viewpoint: str) -> bool:
     for video_path in mp4_files:
         video_path.unlink()
     
-    return True
+    return True, False
 
 if __name__ == "__main__":
     # 测试代码
-    process_videos("test_object", "test_viewpoint")
+    success, need_retry = process_videos("test_object", "test_viewpoint")
