@@ -1,6 +1,11 @@
 import pyautogui
 import time
-import pygetwindow as gw
+import platform
+if platform.system() == "Windows":
+    import pygetwindow as gw          # 仍兼容 Windows
+else:
+    import pywinctl as gw             # Linux / macOS 走 PyWinCtl
+
 import logging
 import pyperclip
 from typing import Tuple, Optional
@@ -14,48 +19,52 @@ logger = logging.getLogger(__name__)
 
 class AutoClicker:
     def __init__(self):
-        # 设置 PyAutoGUI 的安全特性
-        pyautogui.FAILSAFE = True  # 将鼠标移动到屏幕左上角可以中断程序
-        pyautogui.PAUSE = 0.5  # 每个操作之间的延迟时间
-        
+        pyautogui.FAILSAFE = True     # 鼠标移到左上角可中断
+        pyautogui.PAUSE = 0.5         # 每步操作之间的间隔
+
+    # ---------------- 新增方法 ----------------
+    def press_ctrl_l(self) -> bool:
+        """按下 Ctrl+L（常用于聚焦地址栏 / 路径栏）"""
+        try:
+            pyautogui.hotkey('ctrl', 'l')
+            logger.info("已按下 Ctrl+L")
+            return True
+        except Exception as e:
+            logger.error(f"按 Ctrl+L 失败：{e}")
+            return False
+    # -----------------------------------------
+
     def get_window_position(self, window_title: str) -> Optional[Tuple[int, int, int, int]]:
-        """获取指定窗口的位置和大小"""
         try:
             window = gw.getWindowsWithTitle(window_title)[0]
             return (window.left, window.top, window.width, window.height)
         except IndexError:
             logger.error(f"未找到标题为 '{window_title}' 的窗口")
             return None
-            
+
     def click_button(self, x: int, y: int, button: str = 'left') -> bool:
-        """模拟鼠标点击"""
         try:
             pyautogui.moveTo(x, y, duration=0.5)
             pyautogui.click(button=button)
             logger.info(f"成功点击位置：({x}, {y})")
             return True
         except Exception as e:
-            logger.error(f"点击失败：{str(e)}")
+            logger.error(f"点击失败：{e}")
             return False
-            
+
     def paste_text(self, text: str) -> bool:
-        """使用剪贴板粘贴文本"""
         try:
-            # 将文本复制到剪贴板
             pyperclip.copy(text)
-            # 使用Ctrl+V粘贴
             pyautogui.hotkey('ctrl', 'v')
             logger.info(f"成功粘贴文本：{text}")
             return True
         except Exception as e:
-            logger.error(f"粘贴文本失败：{str(e)}")
+            logger.error(f"粘贴文本失败：{e}")
             return False
-            
+
     def wait_for_image(self, image_path: str, timeout: int = 30, confidence: float = 0.8) -> Optional[Tuple[int, int, int, int]]:
-        """等待并检测指定图像出现"""
         start_time = time.time()
         logger.info(f"开始等待图像：{image_path}")
-        
         while time.time() - start_time < timeout:
             try:
                 location = pyautogui.locateOnScreen(image_path, confidence=confidence)
@@ -63,22 +72,19 @@ class AutoClicker:
                     logger.info(f"找到图像，位置：{location}")
                     return location
             except Exception as e:
-                logger.error(f"图像检测失败：{str(e)}")
+                logger.error(f"图像检测失败：{e}")
             time.sleep(1)
-            
         logger.warning(f"等待超时，未找到图像：{image_path}")
         return None
-        
+
     def monitor_download(self, download_image_path: str, button_offset: Tuple[int, int] = (50, 30)) -> bool:
-        """监控下载完成弹窗并点击确认按钮"""
         location = self.wait_for_image(download_image_path)
         if location:
-            # 计算按钮位置（相对于弹窗的偏移）
             button_x = location.left + button_offset[0]
             button_y = location.top + button_offset[1]
             return self.click_button(button_x, button_y)
         return False
-    
+
     def press_enter(self):
         pyautogui.press('enter')
 
@@ -86,24 +92,24 @@ class AutoClicker:
         pyautogui.press('shift')
 
 def main():
-    # 创建自动点击器实例
     auto_clicker = AutoClicker()
-    
-    # 示例：等待 2 秒后开始操作
     time.sleep(2)
-    
+
     # 示例：点击按钮
     auto_clicker.click_button(300, 400)
-    
+
     # 示例：输入文本
     auto_clicker.paste_text("Hello, this is a test!")
-    
+
+    # 示例：按 Ctrl+L（重点演示）
+    auto_clicker.press_ctrl_l()
+
     # 示例：监控下载完成弹窗
-    download_image_path = "download_complete_popup.png"
-    if auto_clicker.monitor_download(download_image_path):
+    if auto_clicker.monitor_download("download_complete_popup.png"):
         logger.info("成功处理下载完成弹窗")
     else:
         logger.error("处理下载完成弹窗失败")
 
 if __name__ == "__main__":
-    main() 
+    main()
+

@@ -16,8 +16,8 @@ class Config:
         self.settings: Dict[str, Union[str, float, int]] = {
             "download_dir": str(Path.home() / "Downloads"),  # 使用用户下载文件夹
             "input_dir": "select_mp4/input_video",
-            "output_dir": r"F:\24-25spring\DexC2D\static_videos",  # 使用绝对路径
-            "threshold": 4.0,  # 光流阈值
+            "output_dir": "/home/airs/Project/embodied_ai/DexC2D/static_videos",
+            "threshold": 3,  # 光流阈值
             "sample_frames": 10  # 采样帧数
         }
     

@@ -4,7 +4,7 @@
 """
 import time
 import os
-import psutil
+import shutil 
 import logging
 import webbrowser
 from raw2mp4.auto_clicker import AutoClicker
@@ -18,32 +18,33 @@ logger = logging.getLogger(__name__)
 
 # 坐标配置常量
 COORDINATES = {
-    "add_image_button": (1478, 1920),
-    "local_image_button": (1633, 1820),
-    "file_path_input": (1052, 97),
-    "file_select": (682, 367),
-    "prompt_input": (1726, 1931),
-    "view_all_videos": (3549, 399),
-    "back_button": (3679, 2005),
-    "download_button": (3542, 308),
-    "watermark_option": (3450, 482),
-    "confirm_download": (2040, 1266),
-    "refresh_button": (195, 127),
-    "activity_button": (3674, 307),
-    "latest_video_set": (3465, 417),
+    "add_image_button": (749, 1002),
+    "local_image_button": (814, 945),
+    # "file_select": (707, 233),
+    "file_select":(642, 207),
+    "prompt_input": (820, 1000),
+    "view_all_videos": (1770, 193),
+    "back_button": (1834, 1052),
+    "download_button": (1751, 139),
+    "watermark_option": (1700, 234),
+    "confirm_download": (1068, 652),
+    "refresh_button": (166, 93),
+    "activity_button": (1843, 145),
+    "latest_video_set": (1742, 204),
     "close_button": (3792, 30),
     "videos": {
-        "top_left": (1317, 699),
-        "top_right": (2511, 693),
-        "bottom_left": (1466, 1467),
-        "bottom_right": (2548, 1487)
+        "top_left": (678, 365),
+        "top_right": (1317, 353),
+        "bottom_left": (688, 768),
+        "bottom_right": (1311, 773)
     }
 }
 
 # 路径配置
-COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "complete.jpg")
+COMPLETE_IMAGE_PATH = os.path.join(os.path.dirname(__file__), "complete.png")
 PROMPT_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompt.txt")
 INPUT_IMAGE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "capture")
+
 
 def set_input_image_dir(directory):
     """设置输入图像目录路径"""
@@ -63,50 +64,54 @@ def read_prompt_file(file_path=PROMPT_FILE_PATH):
         logger.error(f"读取prompt文件时出错: {str(e)}")
         return False
 
-def open_chrome():
-    """打开Chrome浏览器"""
-    chrome_path = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-    chrome_path_x86 = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+def open_firefox():
+    """在 Ubuntu 20.04 上打开（默认安装的）Firefox 浏览器"""
     
-    if os.path.exists(chrome_path):
-        webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
-    elif os.path.exists(chrome_path_x86):
-        webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path_x86))
-    else:
-        logger.error("未找到 Chrome 浏览器，请确保已安装 Chrome")
+    # 1️⃣ 自动查找 firefox 可执行文件
+    firefox_path = shutil.which('firefox')   # /usr/bin/firefox 或 /snap/bin/firefox
+    
+    if firefox_path is None or not os.path.exists(firefox_path):
+        logger.error("未找到 Firefox，请确认已安装。")
         return False
-        
+
+    # 2️⃣ 向 webbrowser 模块登记
+    webbrowser.register('firefox', None, webbrowser.BackgroundBrowser(firefox_path))
+    
+    # 3️⃣ 打开网页
     try:
-        webbrowser.get('chrome').open('https://www.google.com')
-        logger.info("Chrome 浏览器已成功打开")
+        webbrowser.get('firefox').open('https://www.google.com')
+        logger.info("Firefox 浏览器已成功打开")
         return True
     except Exception as e:
-        logger.error(f"打开 Chrome 时出错: {str(e)}")
+        logger.error(f"打开 Firefox 时出错: {e}")
         return False
 
 def open_sora_page():
-    """打开Sora页面"""
+    """在已有的 Firefox 会话中打开 Sora 探索页面"""
     try:
-        webbrowser.get('chrome').open('https://sora.chatgpt.com/explore')
-        logger.info("已打开 Sora 探索页面")
+        webbrowser.get('firefox').open_new_tab(
+            'https://sora.chatgpt.com/explore'
+        )
+        logger.info("Sora 探索页面已在 Firefox 中打开")
         return True
-    except Exception as e:
-        logger.error(f"打开 Sora 页面时出错: {str(e)}")
+    except webbrowser.Error as e:
+        logger.error(f"打开 Sora 页面失败：{e}")
         return False
 
-def close_chrome():
-    """关闭Chrome浏览器"""
+        
+def close_firefox():
+    """关闭 Firefox 浏览器"""
     try:
-        # 点击关闭按钮
+        # 点击窗口右上角的关闭按钮
         auto_clicker = AutoClicker()
         auto_clicker.click_button(*COORDINATES["close_button"])
         time.sleep(2)
-        
-        logger.info("Chrome 浏览器已成功关闭")
+
+        logger.info("Firefox 浏览器已成功关闭")
         return True
     except Exception as e:
-        logger.error(f"关闭 Chrome 时出错: {str(e)}")
-        return False
+        logger.error(f"关闭 Firefox 时出错: {e}")
+        return False        
 
 def download_video(auto_clicker, position_name):
     """下载单个视频的通用流程"""
@@ -148,7 +153,7 @@ def upload_image_and_prompt(auto_clicker):
     time.sleep(2)
     
     # 输入文件路径
-    auto_clicker.click_button(*COORDINATES["file_path_input"])
+    auto_clicker.press_ctrl_l()
     time.sleep(2)
     auto_clicker.paste_text(INPUT_IMAGE_DIR)
     time.sleep(2)
@@ -159,7 +164,7 @@ def upload_image_and_prompt(auto_clicker):
     auto_clicker.click_button(*COORDINATES["file_select"])
     time.sleep(2)
     auto_clicker.press_enter()
-    time.sleep(2)
+    time.sleep(10)
     
     # 输入prompt
     auto_clicker.click_button(*COORDINATES["prompt_input"])
@@ -169,7 +174,7 @@ def upload_image_and_prompt(auto_clicker):
     time.sleep(2)
     auto_clicker.press_enter()
     time.sleep(2)
-    
+
     logger.info("图片和prompt上传完成")
 
 def download_all_videos(auto_clicker, normal_flow=True):
@@ -198,8 +203,8 @@ def download_all_videos(auto_clicker, normal_flow=True):
 def auto_sora_workflow():
     """Sora自动化工作流程"""
     # 打开浏览器
-    if not open_chrome():
-        logger.error("无法启动Chrome浏览器，流程终止")
+    if not open_firefox():
+        logger.error("无法启动Firefox浏览器，流程终止")
         return False
     
     time.sleep(2)
@@ -207,7 +212,7 @@ def auto_sora_workflow():
     # 打开Sora页面
     if not open_sora_page():
         logger.error("无法打开Sora页面，流程终止")
-        close_chrome()
+        close_firefox()
         return False
     
     time.sleep(10)
@@ -232,7 +237,7 @@ def auto_sora_workflow():
         download_all_videos(auto_clicker, normal_flow=False)
     
     # 关闭浏览器
-    close_chrome()
+    close_firefox()
     return True
 
 def main():

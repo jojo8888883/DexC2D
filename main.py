@@ -7,18 +7,25 @@ from mp4_to_data.mp4_to_data import process_videos
 
 # 全局配置
 # 基础配置
-OBJECT_NAME = "bottle"  # 当前要处理的物体名称
-VIEWPOINT = "front"  # 当前要处理的视角
+OBJECT_NAME = "008_pudding_box"  # 当前要处理的物体名称
+VIEWPOINT = "above"  # 当前要处理的视角
 # prompt.txt中当前记录的物体名称，用于跟踪prompt文件的更新历史
 # 如果手动修改prompt.txt，只需要同时更新CURRENT_OBJECT_IN_PROMPT即可
-CURRENT_OBJECT_IN_PROMPT = "tomato soup can"  
+CURRENT_OBJECT_IN_PROMPT = "008_pudding_box"  
 
 BASE_DIR = os.path.dirname(__file__)
 
-# 路径配置
-INPUT_IMAGE_DIR = os.path.join(BASE_DIR, "capture")
-PROMPT_FILE_PATH = os.path.join(BASE_DIR, "prompt.txt")
-CAMERA_PARAMS_PATH = os.path.join(BASE_DIR, "capture", "cam_K.txt")
+# # 路径配置（原来的）
+# INPUT_IMAGE_DIR = os.path.join(BASE_DIR, "capture")
+# PROMPT_FILE_PATH = os.path.join(BASE_DIR, "prompt.txt")
+# CAMERA_PARAMS_PATH = os.path.join(BASE_DIR, "capture", "cam_K.txt")
+
+# 路径配置（拍好的），raw2mp4那里也改了一下键位
+SCENE_DIR = os.path.join(BASE_DIR, "capture_oneshot", "008_pudding_box")
+INPUT_IMAGE_DIR   = SCENE_DIR                                  # 图片目录
+PROMPT_FILE_PATH  = os.path.join(BASE_DIR, "prompt.txt")       # prompt.txt 如果还在根目录
+CAMERA_PARAMS_PATH = os.path.join(SCENE_DIR, "cam_K.txt")      # 同一场景里的 cam_K.txt
+
 
 # 输出配置
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
@@ -114,8 +121,8 @@ def main():
     
     while True:
         # 先运行capture模块
-        capture_single_frame()
-        logger.info("完成图像捕获")
+        # capture_single_frame()
+        # logger.info("完成图像捕获")
             
         # 再运行raw2mp4
         raw2mp4_main()
