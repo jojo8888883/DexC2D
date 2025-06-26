@@ -1,5 +1,6 @@
 import os
 import logging
+from pathlib import Path
 from select_mp4.selector import main as select_mp4_main
 from raw2mp4.raw2mp4 import main as raw2mp4_main, set_input_image_dir as raw2mp4_set_input_dir
 from capture.capture import capture_single_frame
@@ -7,11 +8,11 @@ from mp4_to_data.mp4_to_data import process_videos
 
 # 全局配置
 # 基础配置
-OBJECT_NAME = "008_pudding_box"  # 当前要处理的物体名称
+OBJECT_NAME = "035_power_drill"  # 当前要处理的物体名称
 VIEWPOINT = "above"  # 当前要处理的视角
 # prompt.txt中当前记录的物体名称，用于跟踪prompt文件的更新历史
 # 如果手动修改prompt.txt，只需要同时更新CURRENT_OBJECT_IN_PROMPT即可
-CURRENT_OBJECT_IN_PROMPT = "008_pudding_box"  
+CURRENT_OBJECT_IN_PROMPT = "035_power_drill"  
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -20,8 +21,8 @@ BASE_DIR = os.path.dirname(__file__)
 # PROMPT_FILE_PATH = os.path.join(BASE_DIR, "prompt.txt")
 # CAMERA_PARAMS_PATH = os.path.join(BASE_DIR, "capture", "cam_K.txt")
 
-# 路径配置（拍好的），raw2mp4那里也改了一下键位
-SCENE_DIR = os.path.join(BASE_DIR, "capture_oneshot", "008_pudding_box")
+# 路径配置（拍好的），raw2mp4那里也改了一下键位,mp4_to_data也要改一下路径，最好是能把mp4_to_data的代码也改一下，让路径下的cam_k和深度图能自动被读取
+SCENE_DIR = os.path.join(BASE_DIR, "capture_oneshot", "035_power_drill")
 INPUT_IMAGE_DIR   = SCENE_DIR                                  # 图片目录
 PROMPT_FILE_PATH  = os.path.join(BASE_DIR, "prompt.txt")       # prompt.txt 如果还在根目录
 CAMERA_PARAMS_PATH = os.path.join(SCENE_DIR, "cam_K.txt")      # 同一场景里的 cam_K.txt
@@ -133,7 +134,11 @@ def main():
         logger.info("完成视频选择")
 
         # 处理视频数据
-        success, need_retry = process_videos(config.object_name, config.viewpoint)
+        success, need_retry = process_videos(
+            config.object_name, 
+            config.viewpoint,
+            capture_dir=Path(config.input_image_dir)  # 使用配置的SCENE_DIR作为capture_dir
+        )
         if success:
             logger.info("成功处理视频数据")
             break

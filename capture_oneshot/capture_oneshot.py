@@ -117,9 +117,9 @@ def capture_single_frame(out_dir: Path, *, use_timestamp: bool = True) -> None:
 
         # 8) 生成输出路径
         out_dir.mkdir(parents=True, exist_ok=True)
-        color_path = out_dir / f"color_{stamp}.png"
-        depth_path = out_dir / f"depth_{stamp}.png"
-        cam_K_path = out_dir / f"cam_K_{stamp}.txt"
+        color_path = out_dir / f"color_000000.png"
+        depth_path = out_dir / f"depth_000000.png"
+        cam_K_path = out_dir / f"cam_K.txt"
 
         # 9) 保存文件
         Image.fromarray(color_crop).save(color_path)
