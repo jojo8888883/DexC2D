@@ -20,3 +20,6 @@ __pycache__/
 *.mtl
 
 gen_dataset/
+
+capture_oneshot/*
+!capture_oneshot/*.py
