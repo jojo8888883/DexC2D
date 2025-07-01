@@ -25,6 +25,8 @@ gen_dataset/
 assets/temp/
 assets/gen_datasets/gen_datas/
 assets/raw_datas/temp/
+pipeline/preprocess_module/capture_module/capture_oneshot/*
+!pipeline/preprocess_module/capture_module/capture_oneshot/*.py
 logs/
 *.log
 
@@ -43,3 +45,4 @@ ENV/
 # ---- OS 相关 ----
 .DS_Store
 Thumbs.db
+
