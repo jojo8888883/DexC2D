@@ -1,6 +1,7 @@
 # ---- Python ----
 __pycache__/
 *.py[cod]
+*$py.class
 
 # ---- 编辑器/IDE ----
 .vscode/
@@ -19,7 +20,26 @@ __pycache__/
 *.obj
 *.mtl
 
+# ---- 项目特定 ----
 gen_dataset/
+assets/temp/
+assets/gen_datasets/gen_datas/
+assets/raw_datas/temp/
+logs/
+*.log
 
+# 排除特定文件
+!pipeline/preprocess_module/generation_module/sora_web_automation/complete.png
+
+# ---- 捕获相关 ----
 capture_oneshot/*
 !capture_oneshot/*.py
+
+# ---- 虚拟环境 ----
+venv/
+env/
+ENV/
+
+# ---- OS 相关 ----
+.DS_Store
+Thumbs.db

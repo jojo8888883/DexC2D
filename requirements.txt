@@ -2,3 +2,7 @@ pyautogui==0.9.54
 pygetwindow==0.0.9
 Pillow==10.2.0  # PyAutoGUI 的依赖
 opencv-python==4.9.0.80  # 用于图像识别 
+pyrealsense2>=2.54.1
+numpy>=1.23.0
+pyperclip>=1.8.2
+typing-extensions>=4.0.0

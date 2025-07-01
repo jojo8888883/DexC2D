@@ -1,156 +1,231 @@
+"""
+DexC2D主程序
+"""
+
 import os
 import logging
+import time
 from pathlib import Path
-from select_mp4.selector import main as select_mp4_main
-from raw2mp4.raw2mp4 import main as raw2mp4_main, set_input_image_dir as raw2mp4_set_input_dir
-from capture.capture import capture_single_frame
-from mp4_to_data.mp4_to_data import process_videos
 
-# 全局配置
-# 基础配置
-OBJECT_NAME = "035_power_drill"  # 当前要处理的物体名称
-VIEWPOINT = "above"  # 当前要处理的视角
-# prompt.txt中当前记录的物体名称，用于跟踪prompt文件的更新历史
-# 如果手动修改prompt.txt，只需要同时更新CURRENT_OBJECT_IN_PROMPT即可
-CURRENT_OBJECT_IN_PROMPT = "035_power_drill"  
+from pipeline.logger_module.logger import get_logger
+from pipeline.config.capture_module_variant import CaptureModuleConfig
+from pipeline.config.generation_module_variant import GenerationModuleConfig
+from pipeline.config.selection_module_variant import SelectionModuleConfig
+from pipeline.config.arrange_module_variant import ArrangeModuleConfig
+from pipeline.preprocess_module.capture_module.capture_temp import CaptureTemp
+from pipeline.preprocess_module.generation_module.sora_web_automation.sora_web_automation import SoraWebAutomation
+from pipeline.preprocess_module.selection_module.selector import select_static_videos
+from pipeline.preprocess_module.arrange_module.mp4_to_data import MP4ToData
 
-BASE_DIR = os.path.dirname(__file__)
+# 获取日志记录器
+logger = get_logger("Main")
 
-# # 路径配置（原来的）
-# INPUT_IMAGE_DIR = os.path.join(BASE_DIR, "capture")
-# PROMPT_FILE_PATH = os.path.join(BASE_DIR, "prompt.txt")
-# CAMERA_PARAMS_PATH = os.path.join(BASE_DIR, "capture", "cam_K.txt")
-
-# 路径配置（拍好的），raw2mp4那里也改了一下键位,mp4_to_data也要改一下路径，最好是能把mp4_to_data的代码也改一下，让路径下的cam_k和深度图能自动被读取
-SCENE_DIR = os.path.join(BASE_DIR, "capture_oneshot", "035_power_drill")
-INPUT_IMAGE_DIR   = SCENE_DIR                                  # 图片目录
-PROMPT_FILE_PATH  = os.path.join(BASE_DIR, "prompt.txt")       # prompt.txt 如果还在根目录
-CAMERA_PARAMS_PATH = os.path.join(SCENE_DIR, "cam_K.txt")      # 同一场景里的 cam_K.txt
-
-
-# 输出配置
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-STATIC_VIDEOS_DIR = os.path.join(BASE_DIR, "static_videos")
-
-# 日志配置
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-
-class Configuration:
-    """配置管理类，用于控制全局参数"""
+class Pipeline:
+    """DexC2D处理流水线"""
     
     def __init__(self):
-        self.object_name = OBJECT_NAME
-        self.viewpoint = VIEWPOINT
-        self.input_image_dir = INPUT_IMAGE_DIR
-        self.prompt_file_path = PROMPT_FILE_PATH
-        self.camera_params_path = CAMERA_PARAMS_PATH
-        self.output_dir = OUTPUT_DIR
-        self.static_videos_dir = STATIC_VIDEOS_DIR
-        self.current_object_in_prompt = CURRENT_OBJECT_IN_PROMPT  # 记录当前prompt中的物体名称
+        """初始化流水线"""
+        # 初始化各个模块的配置
+        self.capture_config = CaptureModuleConfig()
+        self.generation_config = GenerationModuleConfig()
+        self.selection_config = SelectionModuleConfig()
+        self.arrange_config = ArrangeModuleConfig()
         
-        # 初始化时创建必要的目录
-        self._create_directories()
-        # 验证配置
-        self._validate_config()
-        # 初始化raw2mp4模块的路径
-        raw2mp4_set_input_dir(INPUT_IMAGE_DIR)
-    
-    def _create_directories(self):
-        """创建必要的目录"""
-        for directory in [self.input_image_dir, self.output_dir, self.static_videos_dir]:
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-                logger.info(f"创建目录: {directory}")
-    
-    def _validate_config(self):
-        """验证配置的有效性"""
-        # 检查必要文件是否存在
-        required_files = [
-            (self.prompt_file_path, "prompt文件"),
-            (self.camera_params_path, "相机参数文件")
-        ]
+    def run_full_pipeline(self, capture_new: bool = True) -> bool:
+        """
+        运行完整的处理流水线
         
-        for file_path, file_desc in required_files:
-            if not os.path.exists(file_path):
-                logger.warning(f"{file_desc}不存在: {file_path}")
-    
-    def set_object_name(self, name):
-        """设置物体名称并更新prompt文件"""
-        self.object_name = name
-        self._update_prompt()
-        return self
-    
-    def _update_prompt(self):
-        """更新prompt.txt文件中的物体名称"""
-        try:
-            # 读取prompt模板
-            with open(self.prompt_file_path, 'r', encoding='utf-8') as f:
-                prompt_text = f.read()
+        Args:
+            capture_new: 是否捕获新图像
             
-            # 替换物体名称（使用当前记录的物体名称而非固定的字符串）
-            updated_prompt = prompt_text.replace(self.current_object_in_prompt, self.object_name)
+        Returns:
+            bool: 是否成功完成
+        """
+        logger.info("开始执行DexC2D流水线")
+        
+        # 步骤1: 捕获图像
+        if capture_new:
+            capture_result = self.run_capture_step()
+            if not capture_result["success"]:
+                logger.error("捕获图像失败，流水线终止")
+                return False
             
-            # 写回文件
-            with open(self.prompt_file_path, 'w', encoding='utf-8') as f:
-                f.write(updated_prompt)
-            
-            # 更新当前prompt中的物体名称记录
-            self.current_object_in_prompt = self.object_name
-                
-            logger.info(f"成功更新prompt文件中的物体名称为: {self.object_name}")
-            return True
-        except Exception as e:
-            logger.error(f"更新prompt文件时出错: {str(e)}")
+            capture_dir = capture_result["temp_dir"]
+        else:
+            # 使用已有的临时捕获目录
+            capture_dir = self.capture_config.get_temp_capture_dir()
+            logger.info(f"跳过捕获步骤，使用已有的捕获图像: {capture_dir}")
+        
+        # 步骤2: 生成视频
+        generation_result = self.run_generation_step(capture_dir)
+        if not generation_result["success"]:
+            logger.error("生成视频失败，流水线终止")
             return False
-
-    def set_viewpoint(self, viewpoint: str):
-        """设置视角名称"""
-        self.viewpoint = viewpoint
-        return self
-
-# 创建全局配置实例
-config = Configuration()
+        
+        # 步骤3: 选择静态视频
+        selection_result = self.run_selection_step()
+        if not selection_result["success"]:
+            logger.error("选择静态视频失败，流水线终止")
+            return False
+        
+        # 步骤4: 处理视频数据
+        arrangement_result = self.run_arrangement_step()
+        if not arrangement_result["success"]:
+            logger.error("处理视频数据失败，流水线终止")
+            return False
+        
+        logger.info("DexC2D流水线执行完成")
+        return True
+        
+    def run_capture_step(self) -> dict:
+        """
+        运行捕获步骤
+        
+        Returns:
+            dict: 包含捕获结果的字典
+        """
+        logger.info("开始执行捕获步骤")
+        
+        capture_temp = CaptureTemp(self.capture_config)
+        capture_result = capture_temp.capture_single_frame()
+        
+        if capture_result["success"]:
+            logger.info("捕获步骤完成")
+        else:
+            logger.error("捕获步骤失败")
+            
+        return capture_result
+        
+    def run_generation_step(self, capture_dir: str) -> dict:
+        """
+        运行生成步骤
+        
+        Args:
+            capture_dir: 捕获图像目录
+            
+        Returns:
+            dict: 包含生成结果的字典
+        """
+        logger.info("开始执行生成步骤")
+        
+        sora_automation = SoraWebAutomation(
+            gen_config=self.generation_config,
+            capture_dir=capture_dir
+        )
+        
+        generation_result = sora_automation.run()
+        
+        if generation_result["success"]:
+            logger.info("生成步骤完成")
+        else:
+            logger.error("生成步骤失败")
+            
+        return generation_result
+        
+    def run_selection_step(self) -> dict:
+        """
+        运行选择步骤
+        
+        Returns:
+            dict: 包含选择结果的字典
+        """
+        logger.info("开始执行选择步骤")
+        
+        selection_result = select_static_videos(
+            config=self.selection_config,
+            clear_first=False,  # 不清空输入目录，使用生成步骤下载的视频
+            import_videos=True,
+            video_count=4
+        )
+        
+        if selection_result["success"]:
+            logger.info("选择步骤完成")
+        else:
+            logger.error("选择步骤失败")
+            
+        return selection_result
+        
+    def run_arrangement_step(self) -> dict:
+        """
+        运行排列步骤
+        
+        Returns:
+            dict: 包含排列结果的字典
+        """
+        logger.info("开始执行排列步骤")
+        
+        mp4_to_data = MP4ToData(
+            arrange_config=self.arrange_config,
+            capture_config=self.capture_config
+        )
+        
+        object_name = self.capture_config.get_object_name()
+        viewpoint = self.capture_config.get_viewpoint()
+        
+        success, need_retry = mp4_to_data.process_videos(
+            object_name=object_name,
+            viewpoint=viewpoint
+        )
+        
+        result = {
+            "success": success,
+            "need_retry": need_retry
+        }
+        
+        if success:
+            logger.info("排列步骤完成")
+        else:
+            if need_retry:
+                logger.warning("排列步骤需要重试")
+            else:
+                logger.error("排列步骤失败")
+            
+        return result
+        
+    def retry_pipeline(self, max_retries: int = 3) -> bool:
+        """
+        尝试执行流水线，如果失败则重试
+        
+        Args:
+            max_retries: 最大重试次数
+            
+        Returns:
+            bool: 是否最终成功
+        """
+        retry_count = 0
+        capture_new = True  # 第一次执行时捕获新图像
+        
+        while retry_count < max_retries:
+            if retry_count > 0:
+                logger.info(f"重试流水线执行 ({retry_count}/{max_retries})")
+                time.sleep(2)  # 等待一段时间后重试
+            
+            success = self.run_full_pipeline(capture_new)
+            
+            if success:
+                return True
+                
+            retry_count += 1
+            capture_new = False  # 重试时不再捕获新图像
+        
+        logger.error(f"流水线执行失败，已重试 {max_retries} 次")
+        return False
 
 def main():
     """主函数"""
-    logger.info("开始执行主程序")
-    logger.info(f"当前配置: 物体名称={config.object_name}, 视角={config.viewpoint}, 输入目录={config.input_image_dir}")
+    logger.info("DexC2D程序启动")
     
-    while True:
-        # 先运行capture模块
-        # capture_single_frame()
-        # logger.info("完成图像捕获")
-            
-        # 再运行raw2mp4
-        raw2mp4_main()
-        logger.info("完成视频转换")
-
-        # 运行select_mp4
-        select_mp4_main()
-        logger.info("完成视频选择")
-
-        # 处理视频数据
-        success, need_retry = process_videos(
-            config.object_name, 
-            config.viewpoint,
-            capture_dir=Path(config.input_image_dir)  # 使用配置的SCENE_DIR作为capture_dir
-        )
-        if success:
-            logger.info("成功处理视频数据")
-            break
-        elif need_retry:
-            logger.warning("未找到合适的视频，将重新生成")
-            continue
-        else:
-            logger.error("处理视频数据时发生错误")
-            break
-
-    logger.info("程序执行完成")
+    pipeline = Pipeline()
+    success = pipeline.retry_pipeline(max_retries=3)
+    
+    if success:
+        logger.info("DexC2D程序执行成功")
+        return 0
+    else:
+        logger.error("DexC2D程序执行失败")
+        return 1
 
 if __name__ == "__main__":
-    main()
+    exit_code = main()
+    exit(exit_code)
 
